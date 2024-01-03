@@ -1,56 +1,119 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Blog Website
+[View live project Here](deployed link)
+***
 
-Welcome,
+website name is ....
 
-This is the Code Institute student template for the mongo lessons. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Mock Up](Image of mock up)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **April 3rd, 2023**
+- [Blog Website](#blog-website)
+- [User Experience UX](#user-experience-ux)
+  - [UX-strategy](#ux-strategy)
+  - [UX-scope](#ux-scope)
+  - [UX-structure](#ux-structure)
+  - [UX-skeleton](#ux-skeleton)
+  - [UX-surface](#ux-surface)
+- [Technologies-used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
-## Codeanywhere Reminders
+# User Experience UX
 
-# IDE
+## UX-strategy
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose option 4.4 for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password *(will not echo **\*\*\*\*** *on screen)\*
+The goal is to 
 
-#### Clear screen in Mongo Shell:
+**Developer Goals**
 
-- `cls`
 
-#### Show all database collections:
 
-- `show collections`
+**User Goals**
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
 
-`python3 -m http.server`
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+**User Stories**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+_As a FIRST TIME user of the site I want to be able to:_
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+_As a RETURNING user of the site I want to be able to:_
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## UX-scope
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
----
+**Existing Features**
 
-Happy coding!
+
+
+**Future Improvements**
+
+
+  
+## UX-structure
+
+**Navigation**
+
+
+
+**Footer**
+
+![Footer](assets/images/testing/footer-game.png)
+
+I've chosen to use the traditional footer space to house a contact us link which opens in a new tab and allows users to provide feedback and ideas to me. Additionally on
+the game screens I've used the footer to house the help section. Instead this can be toggled by the user and hides when a new game starts. 
+
+
+
+## UX-skeleton
+
+**Design Choices**
+
+
+
+**Wireframes**
+
+[View Wireframes](wireframes.md)
+
+## UX-surface
+
+**Colour Palette and Imagery**
+
+
+**Fonts**
+
+
+
+**Responsiveness**
+
+
+
+# Technologies-used
+
+
+
+# Testing 
+[View Testing Documentation](testing.md)
+
+# Deployment
+The Website has been deployed using GitHub Pages [Here](deployed link) using the method below:
+
+
+
+# Credits
+**Content**
+
+
+
+**Code**
+
+
+
+**Images**
+
+
+
+**Advice**
+
+
