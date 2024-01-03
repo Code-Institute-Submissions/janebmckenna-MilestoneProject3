@@ -27,7 +27,7 @@ The goal is to
 **Developer Goals**
 - Build portfoilio: 
 - Develop technical skills:
- 
+
 
 
 **User Goals**
@@ -92,7 +92,8 @@ the game screens I've used the footer to house the help section. Instead this ca
 
 
 # Technologies-used
-
+- Materialize
+- jQuery
 
 
 # Testing 
@@ -105,7 +106,7 @@ The Website has been deployed using GitHub Pages [Here](deployed link) using the
 
 # Credits
 **Content**
-
+https://mycolor.space/
 
 
 **Code**

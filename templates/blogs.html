@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% for blog in blogs %}
+        <p>Category:</p>{{ blog.category_name }}<br>
+        <h2>{{ blog.title }}</h2><br>
+        {{ blog.blog_content }}<br>
+        <p>Date Posted:</p> {{ blog.date }}<br>
+        <p>Posted By:</p> {{ blog.user}}
+    {% endfor %}
+
+{% endblock %}
