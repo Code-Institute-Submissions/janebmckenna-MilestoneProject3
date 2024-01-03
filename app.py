@@ -107,8 +107,6 @@ def login():
 
 @app.route("/logout")
 def logout():
-    return render_template("confirm.html")
-    
     # remove user from session cookies
     flash ("You have been logged out")
     session.pop('user')
