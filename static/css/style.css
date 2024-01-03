@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(to top, #1a237e, #2c3b93, #3e54a7, #526dbb, #6786ce, #6599de, #65acec, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background: linear-gradient(to top, #1a237e, #2c3b93, #3e54a7, #526dbb, #6786ce, #6599de, #65acec, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
     color: white;
 }
 
