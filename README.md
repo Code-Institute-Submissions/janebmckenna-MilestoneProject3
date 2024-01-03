@@ -2,7 +2,7 @@
 [View live project Here](deployed link)
 ***
 
-website name is ....
+Blog webiste is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog may help to avoid a pitfall in the road. Blog website documents all of lifes ups and downs.  
 
 ![Mock Up](Image of mock up)
 
@@ -25,7 +25,9 @@ website name is ....
 The goal is to 
 
 **Developer Goals**
-
+- Build portfoilio: 
+- Develop technical skills:
+ 
 
 
 **User Goals**
