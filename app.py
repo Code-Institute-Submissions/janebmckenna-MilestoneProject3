@@ -4,10 +4,11 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import (
+    generate_password_hash, check_password_hash)
+
 if os.path.exists("env.py"):
     import env
-
 
 app = Flask(__name__)
 
@@ -106,10 +107,12 @@ def login():
 
 @app.route("/logout")
 def logout():
-        # remove user from session cookies
-        flash ("You have been logged out")
-        session.pop('user')
-        return redirect(url_for("login"))
+    return render_template("confirm.html")
+    
+    # remove user from session cookies
+    flash ("You have been logged out")
+    session.pop('user')
+    return redirect(url_for("login"))
 
 
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting

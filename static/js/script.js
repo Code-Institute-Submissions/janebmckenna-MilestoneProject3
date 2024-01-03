@@ -8,5 +8,6 @@ $(document).ready(function () {
         } else 
           $('#password-message').html('Passwords Do Not Match').css('color', 'red');
       });
+    $('.modal').modal();
     });
 
