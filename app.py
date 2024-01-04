@@ -170,6 +170,25 @@ def delete(blog_id):
     return redirect(url_for("blog_posts"))
 
 
+@app.route("/categories")
+def categories():
+    categories = list(mongo.db.categories.find().sort("category_name",1))
+    return render_template("categories.html", categories=categories)
+
+
+@app.route("/new_category", methods=["GET", "POST"])
+def new_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New Category Added")
+        return redirect(url_for("categories"))
+
+    return render_template("new_category.html")
+
+
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
