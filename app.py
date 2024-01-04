@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import date
 from werkzeug.security import (
     generate_password_hash, check_password_hash)
 
@@ -111,6 +112,27 @@ def logout():
     flash ("You have been logged out")
     session.pop('user')
     return redirect(url_for("login"))
+
+
+@app.route("/new_blog", methods=["GET", "POST"])
+def new_blog():
+    # gets current date
+    today = date.today().strftime('%d %b %Y')
+    print(today)
+    if request.method == "POST":
+        blog = {
+            "category_name": request.form.get("category_name"),
+            "title": request.form.get("title"),
+            "blog_content": request.form.get("blog_content"),
+            "date": today,
+            "user": session["user"]
+        }
+        mongo.db.blogs.insert_one(blog)
+        flash("Thank you, blog successfully added")
+        return redirect(url_for("blog_posts"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("new_blog.html", categories = categories)
 
 
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting

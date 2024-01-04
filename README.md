@@ -108,6 +108,7 @@ The Website has been deployed using GitHub Pages [Here](deployed link) using the
 **Content**
 https://mycolor.space/
 materialise 
+how to format the date https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python 
 
 
 **Code**

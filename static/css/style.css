@@ -1,6 +1,5 @@
 body{
-    background: linear-gradient(to top, #1a237e, #2c3b93, #3e54a7, #526dbb, #6786ce, #6599de, #65acec, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
-    color: white;
+    background: linear-gradient(to right, #1a237e, #004fa6, #0078c3, #00a0d8, #00c8e7, #00c8e7, #00c8e7, #00c8e7, #00a0d8, #0078c3, #004fa6, #1a237e);
 }
 
 .text-shadow{
@@ -18,5 +17,9 @@ body{
 .editbtn{
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.form-bg{
+    background-color: rgba(0,0,0,0.4);
 }
 
