@@ -26,6 +26,13 @@ def blog_posts():
     return render_template("blogs.html", blogs=blogs)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get('query')
+    blogs = list(mongo.db.blogs.find({"$text": {"$search":query}}))
+    return render_template("blogs.html", blogs=blogs)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -71,9 +78,10 @@ def profile(username):
     # grab the session users username from the database
     username =mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    blogs = list(mongo.db.blogs.find())
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, blogs=blogs)
 
     return redirect(url_for("login"))
 
@@ -209,6 +217,7 @@ def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category succesfully deleted")
     return redirect(url_for("categories"))
+  
 
 
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting
