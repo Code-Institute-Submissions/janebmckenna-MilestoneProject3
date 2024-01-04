@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-
+    <ul class="collapsible">
     {% for blog in blogs %}
-        <p>Category:</p>{{ blog.category_name }}<br>
-        <h2>{{ blog.title }}</h2><br>
-        {{ blog.blog_content }}<br>
-        <p>Date Posted:</p> {{ blog.date }}<br>
-        <p>Posted By:</p> {{ blog.user}}
+        <li>
+            <div class="collapsible-header blue lighten-5 indigo-text text-darken-4">
+                <i class="fas fa-caret-down"></i>
+                {% if session.user|lower == blog.user|lower %}
+                    <a href="#" class="btn-small green accent-4">Delete</a>
+                    <a href="#" class="btn-small light-blue lighten-1 editbtn">Edit</a>
+                {% endif %}
+                <h6 class="indigo-text text-darken-4">{{ blog.title }} </h6>
+            </div>
+            <div class="collapsible-body blue lighten-4 indigo-text text-darken-4">
+                <p class="indigo-text text-darken-4">Category: {{ blog.category_name }}</p>
+                <p>
+                    {{ blog.blog_content }}<br>
+                </p>
+                <p>
+                    <span>Date Posted:</span> {{ blog.date }}<br>
+                    <span>Posted By:</span> {{ blog.user}}
+                </p>
+            </div>
+          </li>
     {% endfor %}
-
+      </ul>
 {% endblock %}
