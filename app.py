@@ -84,6 +84,11 @@ def login():
         # check if username exists in DB
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
+        print(existing_user)
+        for key, val in existing_user.items():
+            if key == "is_admin":
+                admin = val
+                print(admin)
 
         if existing_user:
             # ensure passwords match
@@ -133,6 +138,29 @@ def new_blog():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("new_blog.html", categories = categories)
+
+
+@app.route("/edit/<blog_id>", methods=["GET", "POST"])
+def edit(blog_id):
+    # gets current date
+    today = date.today().strftime('%d %b %Y')
+    print(today)
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "title": request.form.get("title"),
+            "blog_content": request.form.get("blog_content"),
+            "date": today,
+            "user": session["user"],
+            "updated": "yes"
+        }
+        mongo.db.blogs.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
+        flash("Thank you, blog successfully updated")
+        return redirect(url_for("blog_posts"))
+
+    blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit.html", blog=blog, categories = categories)
 
 
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting

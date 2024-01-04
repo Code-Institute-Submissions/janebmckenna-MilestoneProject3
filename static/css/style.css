@@ -5,7 +5,9 @@ body{
 .text-shadow{
     text-shadow: 3px 3px 3px rgba(0,0,0,0.7);
 }
-
+.i-text-shadow{
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
 #password-message{
     text-align: justify;
 }
@@ -23,3 +25,7 @@ body{
     background-color: rgba(0,0,0,0.4);
 }
 
+.blog-title{
+    margin: 5px;
+    line-height: 28px;
+}
