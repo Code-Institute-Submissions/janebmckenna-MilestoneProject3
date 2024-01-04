@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $(".sidenav").sidenav({edge: "right"});
+    $('.modal').modal();
     $(".collapsible").collapsible();
     // check passwords match
     $('#password, #confirm').on('keyup', function () {
@@ -8,8 +9,8 @@ $(document).ready(function () {
         } else 
           $('#password-message').html('Passwords Do Not Match').css('color', 'red');
       });
-    $('.modal').modal();
     $('select').formSelect();
     $(".tooltipped").tooltip();
     });
+
 

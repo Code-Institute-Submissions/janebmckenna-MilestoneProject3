@@ -163,6 +163,13 @@ def edit(blog_id):
     return render_template("edit.html", blog=blog, categories = categories)
 
 
+@app.route("/delete/<blog_id>")
+def delete(blog_id):
+    mongo.db.blogs.delete_one({"_id": ObjectId(blog_id)})
+    flash("Blog succesfully deleted")
+    return redirect(url_for("blog_posts"))
+
+
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
