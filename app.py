@@ -101,13 +101,13 @@ def login():
         # check if username exists in DB
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        print(existing_user)
-        for key, val in existing_user.items():
-            if key == "is_admin":
-                admin = val
-                print(admin)
 
         if existing_user:
+            print(existing_user)
+            for key, val in existing_user.items():
+                if key == "is_admin":
+                    admin = val
+                    print(admin)
             # ensure passwords match
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
