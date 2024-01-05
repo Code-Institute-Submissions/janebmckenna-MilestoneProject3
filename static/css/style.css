@@ -8,12 +8,29 @@ body{
     margin: auto;
     display: flex;
     flex-direction: column;
+    font-family: 'Oswald', sans-serif;
 }
 
 main {
     flex: 1 0 auto;
   }
 
+/* Navigation styling */
+nav{
+    min-height: 110px;
+    overflow: hidden;
+}
+#logo{
+    max-height: 100%;
+    width:auto;
+    float: left;
+    padding-left: 5%;
+    margin: 0 auto; 
+    padding: 10px 0;
+} 
+#nav-links li{
+    margin-top: 18px;
+}
 footer{
     margin-top: auto;
     font-size: 1.5rem;
@@ -58,6 +75,15 @@ footer{
     padding: 2px;
     margin-bottom: 2px;
 }
+
+#blue-logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 30%;
+}
+/* Responsive design tweeking */
 @media screen and (max-width: 540px){
     .search-card{
         margin-top: 5px;
@@ -77,5 +103,9 @@ footer{
     }
     .search-header{
         margin: 15px;
+    }
+    .btn-small{
+        font-size: 10px;
+        padding: 3px;
     }
 }

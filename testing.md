@@ -21,5 +21,7 @@
 ## Bugs
 - confirmation/modal issue passing object id throught the modal
 - Sticky footer - wont stay to the bottom
+- search on profile redirects back to main screen - fixed then issue wioth no showing no results found when blogs exist for other users
+- logo on profile page - forgot to use jinga template
 
 [Return to README](README.md)

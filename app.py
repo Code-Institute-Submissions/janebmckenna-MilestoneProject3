@@ -33,6 +33,15 @@ def search():
     return render_template("blogs.html", blogs=blogs)
 
 
+@app.route("/search_profile", methods=["GET", "POST"])
+def search_profile():
+    query = request.form.get('query')
+    blogs = list(mongo.db.blogs.find({"$text": {"$search":query}}))
+    username =mongo.db.users.find_one(
+    {"username": session["user"]})["username"]
+    return render_template("profile.html", blogs=blogs, username=username)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

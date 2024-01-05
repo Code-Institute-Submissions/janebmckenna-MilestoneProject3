@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="white-text text-shadow center-align">Register</h3>
-
+    <div class="row s10 offset-s1 l2 offset-l5">
+        <img src="{{ url_for('static', filename = 'Images/logo.png') }}" alt="Logo for life in blog" id="blue-logo">
+    </div>
+    <div class="row">
+        <h3 class="white-text text-shadow center-align">Register</h3>
+    </div>    
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register')}}">
             <div class="card-panel teal accent-1">

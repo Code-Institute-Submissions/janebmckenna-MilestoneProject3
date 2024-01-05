@@ -10,6 +10,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
   {% block styles %}
   {% endblock %}
@@ -19,9 +22,9 @@
 <body>
   <nav class="indigo darken-4">
     <div class="nav-wrapper">
-      <a href="{{ url_for('blog_posts')}}" class="brand-logo">Life in Blog</a>
+      <a href="{{ url_for('blog_posts')}}" class="brand-logo"><img src="{{ url_for('static', filename = 'Images/logo-white.png') }}" alt="Logo for life in blog" id="logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-      <ul class="right hide-on-med-and-down">
+      <ul class="right hide-on-med-and-down" id="nav-links">
         <li><a href="{{ url_for('blog_posts')}}">Home</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('profile', username=session['user'])}}">My Profile</a></li>
