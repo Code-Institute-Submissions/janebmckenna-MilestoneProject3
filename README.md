@@ -61,11 +61,10 @@ _As a RETURNING user of the site I want to be able to:_
 
 **Footer**
 
-![Footer](assets/images/testing/footer-game.png)
 
-I've chosen to use the traditional footer space to house a contact us link which opens in a new tab and allows users to provide feedback and ideas to me. Additionally on
-the game screens I've used the footer to house the help section. Instead this can be toggled by the user and hides when a new game starts. 
 
+**Data Structure**
+![Data Structure](static/Images/Wireframes/Database.png)
 
 
 ## UX-skeleton
