@@ -162,13 +162,15 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 
 # Credits
 **Content**
-https://mycolor.space/
-materialise 
-how to format the date https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python 
 
+- [Materialise Version 1.0.0](https://materializecss.com/about.html)
+- I used [colormind.io](https://mycolor.space/) to decide on the colour scheme of the site, to achieve the retro feel I intended. 
+- Icons were sourced from [Font Awesome](https://fontawesome.com)
+- My fonts were taken from [Google Fonts](https://fonts.google.com/)
+- Wireframes were created using [Balsamiq](https://balsamiq.com/)
 
 **Code**
-
+- [How to format the date ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
 
 
 **Images**
