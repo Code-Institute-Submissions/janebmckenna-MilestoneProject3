@@ -54,3 +54,28 @@ footer{
     line-height: 28px;
 }
 
+#search-div{
+    padding: 2px;
+    margin-bottom: 2px;
+}
+@media screen and (max-width: 540px){
+    .search-card{
+        margin-top: 5px;
+        min-width: 100vw;
+        margin-left: -20px;
+        padding: 0px;
+    }
+    .search-form{
+        margin-left: -15px;
+    }
+    .search-icon{
+        font-size: 0.5em;
+    }
+    #search-div input{
+        font-size: xx-small;
+        margin-right: 0px;
+    }
+    .search-header{
+        margin: 15px;
+    }
+}

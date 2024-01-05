@@ -19,5 +19,7 @@
 ## Validator Audit
 
 ## Bugs
+- confirmation/modal issue passing object id throught the modal
+- Sticky footer - wont stay to the bottom
 
 [Return to README](README.md)
