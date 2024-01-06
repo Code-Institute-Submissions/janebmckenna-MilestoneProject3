@@ -101,13 +101,13 @@ def login():
         # check if username exists in DB
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-
+        # checks if user is an admin
         if existing_user:
-            print(existing_user)
             for key, val in existing_user.items():
                 if key == "is_admin":
                     admin = val
-                    print(admin)
+                    session["admin"] = admin
+
             # ensure passwords match
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
@@ -133,6 +133,7 @@ def logout():
     # remove user from session cookies
     flash ("You have been logged out")
     session.pop('user')
+    session.pop('admin')
     return redirect(url_for("login"))
 
 
@@ -140,7 +141,6 @@ def logout():
 def new_blog():
     # gets current date
     today = date.today().strftime('%d %b %Y')
-    print(today)
     if request.method == "POST":
         blog = {
             "category_name": request.form.get("category_name"),
@@ -161,7 +161,6 @@ def new_blog():
 def edit(blog_id):
     # gets current date
     today = date.today().strftime('%d %b %Y')
-    print(today)
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -189,8 +188,12 @@ def delete(blog_id):
 
 @app.route("/categories")
 def categories():
-    categories = list(mongo.db.categories.find().sort("category_name",1))
-    return render_template("categories.html", categories=categories)
+    admin = session["admin"]
+    print(admin)
+    if admin == "Yes":
+        categories = list(mongo.db.categories.find().sort("category_name",1))
+        return render_template("categories.html", categories=categories)
+    return render_template("blogs.html")
 
 
 @app.route("/new_category", methods=["GET", "POST"])
