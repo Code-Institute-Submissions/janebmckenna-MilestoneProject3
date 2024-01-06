@@ -170,7 +170,7 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 - Wireframes were created using [Balsamiq](https://balsamiq.com/)
 
 **Code**
-- [How to format the date ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
+- I learned how to format the date within my Python function from [this site ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
 
 
 **Images**
