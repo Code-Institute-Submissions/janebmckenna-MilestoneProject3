@@ -3,10 +3,12 @@ from flask import (
     Flask, flash, render_template, 
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_mail import Mail, Message
 from bson.objectid import ObjectId
 from datetime import date
 from werkzeug.security import (
     generate_password_hash, check_password_hash)
+from itsdangerous import URLSafeSerializer
 
 if os.path.exists("env.py"):
     import env
@@ -17,7 +19,14 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER')
+app.config['MAIL_PORT'] = os.environ.get('MAIL_PORT')
+app.config['MAIL_USE_TLS'] = os.environ.get('MAIL_USE_TLS')
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+
 mongo = PyMongo(app)
+mail = Mail(app)
 
 @app.route("/")
 @app.route("/blog_posts")
@@ -130,7 +139,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookies
+    # remove user/admin from session cookies
     flash ("You have been logged out")
     session.pop('user')
     session.pop('admin')
@@ -230,6 +239,67 @@ def delete_category(category_id):
     flash("Category succesfully deleted")
     return redirect(url_for("categories"))
   
+
+@app.route("/reset_request", methods=["GET", "POST"])
+def reset_request():
+    if request.method == "POST":
+        # check if email exists
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+        flash('''
+        Check your email, 
+        if your email matches an account in our database 
+        you will recieve a reset link''')
+        if existing_user:
+            # grabs the email if the user exists
+            for key, val in existing_user.items():
+                if key == "email":
+                    user = str(val)
+                    send_mail(user)
+        else:
+            pass
+        return redirect(url_for('login'))
+    return render_template("reset_request.html")
+
+
+# Sends reset mail to user
+def send_mail(user):
+    user = mongo.db.users.find_one({"email": user})
+    serial = URLSafeSerializer(app.secret_key)
+    print(user)
+    # token = serial.dumps({'email': user})
+    msg = Message(
+        'Password Reset Request', recipients = user['email'] , sender='noreply@lifeinblog.com',)
+    msg.body = f''' To reset your password, please follow the link below.
+    Your username is{{"user.user_name"}}
+    {{ url_for('verify_token' token=token)}}
+
+    If you didnt request a password reset please ignore this message. 
+    '''
+    print('sending mail')
+
+
+# checks the token from the password reset link
+def verify_token(token):
+    serial = URLSafeSerializer(app.secret_key)
+    try:
+        user_id = serial.loads(token)['user_id']
+    except:
+        return None
+    return mongo.db.users.find_one({'user_id': user_id})
+
+
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if verify_token(token):
+        print(token)
+        return redirect(url_for('new_password'))
+
+
+@app.route('/new_password/<user_id>', methods=['GET', 'POST'])
+def new_password(user):
+    pass
+
 
 
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting

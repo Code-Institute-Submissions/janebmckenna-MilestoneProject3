@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="white-text text-shadow center-align">Reset Password</h3>
+
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{url_for('reset_request')}}">
+            <div class="card-panel grey lighten-5">
+                <!-- email -->
+                <div class="row">
+                    <div class="input-field col s12">
+                      <i class="fas fa-envelope prefix blue-text"></i>
+                      <input id="email" name="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
+                <!-- Submit reset request -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                        Reset Password <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
