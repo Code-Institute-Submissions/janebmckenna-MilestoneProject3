@@ -176,6 +176,7 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 
 **Code**
 - I learned how to format the date within my Python function from [this site ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
+- I learned how to delete an object from an array in MongoDB in the documentation [here](https://www.mongodb.com/docs/manual/reference/operator/update/pull/#:~:text=If%20the%20specified%20to,exact%20same%20fields%20and%20values.)
 
 
 **Images**

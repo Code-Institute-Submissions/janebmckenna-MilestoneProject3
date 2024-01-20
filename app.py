@@ -209,6 +209,16 @@ def delete(blog_id):
     return redirect(url_for("blog_posts"))
 
 
+@app.route("/delete_comment/<comment>/<blog_id>")
+def delete_comment(comment, blog_id):
+    mongo.db.blogs.update_one({"_id": ObjectId(blog_id)}, {"$pull":{"comments":  comment}})
+            
+
+    # mongo.db.blogs.comments.delete_one()
+    flash("Comment succesfully deleted")
+    return redirect(url_for("blog_posts"))
+
+
 @app.route("/categories")
 def categories():
     admin = session["admin"]
