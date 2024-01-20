@@ -31,6 +31,8 @@ nav{
 #nav-links li{
     margin-top: 18px;
 }
+
+/* footer styling */
 footer{
     margin-top: auto;
     font-size: 1.5rem;
@@ -82,6 +84,21 @@ footer{
     margin-right: auto;
     margin-top: 10px;
     width: 30%;
+}
+
+.commentbtn{
+    text-align: right;
+    margin-right: auto;
+    color: #000;
+}
+#blog-box{
+    padding: 5px;
+}
+#comment-box{
+    padding: 5px;
+}
+#comment-form{
+    padding: 5px;
 }
 /* Responsive design tweeking */
 @media screen and (max-width: 540px){

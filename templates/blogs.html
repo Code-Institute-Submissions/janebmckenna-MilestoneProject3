@@ -27,8 +27,9 @@
         <li>
             <div class="collapsible-header blue lighten-5 indigo-text text-darken-4">
                 <i class="fas fa-caret-down"></i>
+                <!-- Edit/Delete buttons if user is the owner of the post -->
                 {% if (session.user|lower == blog.user|lower) or (session.admin|lower == "yes"|lower) %}
-                <a href="{{ url_for('delete', blog_id= blog._id)}}" class="btn-small red accent-4" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+                    <a href="{{ url_for('delete', blog_id= blog._id)}}" class="btn-small red accent-4" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
                     </a>
                     <a href="{{ url_for('edit', blog_id= blog._id)}}" class="btn-small light-blue lighten-1 editbtn">Edit</a>
                 {% endif %}
@@ -47,6 +48,9 @@
                 <p>
                     <span>Date Posted:</span> {{ blog.date }}<br>
                     <span>Posted By:</span> {{ blog.user}}
+                </p>
+                <p align="right">
+                    <a href="{{ url_for('comments', blog_id=blog._id)}}" class="btn-small teal accent-2 commentbtn"><i class="fa-solid fa-eye prefix"></i> Comments</a>
                 </p>
             </div>
           </li>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="white-text text-shadow center-align"><strong>{{blog.category_name}}:  </strong> {{+ blog.title }} </h3>
+    <div id="blog-box" class="blue lighten-4 indigo-text text-darken-4">
+        <p>
+            {{ blog.blog_content }}<br>
+        </p>
+        <p>
+            <span>Date Posted:</span> {{ blog.date }}<br>
+            <span>Posted By:</span> {{ blog.user}}
+        </p>
+    </div>
+    <!-- existing comments -->
+    {% if blog.comments|length > 0 %}
+        <h6 class="white-text text-shadow center-align">Comments </h3>
+        <ul>
+            {% for comment in blog.comments %}
+                <li>
+                    {{comment}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <!-- new comment -->
+    <form method="POST" action="{{ url_for('comments', blog_id=blog._id )}}" class="teal accent-1 text-darken-4 indigo-text" id="comment-form">
+        <div class="row">
+            <div class="input-field col m8 offset-m2 ">
+                <i class="fa-solid fa-comment prefix"></i>
+                <textarea id="comment" name="comment" class="materialize-textarea validate" 
+                    minlength="20" maxlength="2000"></textarea>
+                <label for="comment">What do you think?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large indigo darken-4 text-shaddow">Add Comment <i class="fas fa-plus-square right"></i></button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
