@@ -191,7 +191,7 @@ def edit(blog_id):
 @app.route("/comments/<blog_id>", methods=["GET", "POST"])
 def comments(blog_id):
     if request.method == "POST":
-        submit= request.form.get("comment")
+        submit= "User " + (session["user"]) + " commented: " + (request.form.get("comment"))
 
         mongo.db.blogs.update_one({"_id": ObjectId(blog_id)}, { "$push":  {"comments": submit} })
         flash("Thank you, comment added")
@@ -200,6 +200,7 @@ def comments(blog_id):
     print(comments)
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     return render_template("comments.html", blog=blog, comments=comments)
+
 
 @app.route("/delete/<blog_id>")
 def delete(blog_id):

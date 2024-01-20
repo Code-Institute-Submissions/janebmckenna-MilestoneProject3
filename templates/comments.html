@@ -12,17 +12,20 @@
     </div>
     <!-- existing comments -->
     {% if blog.comments|length > 0 %}
-        <h6 class="white-text text-shadow center-align">Comments </h3>
-        <ul>
-            {% for comment in blog.comments %}
-                <li>
-                    {{comment}}
-                </li>
-            {% endfor %}
-        </ul>
+        <h5 class="white-text text-shadow center-align">Comments </h5>
+        <div id="comment-box" class="blue lighten-4 indigo-text text-darken-4">
+            <ul>
+                {% for comment in blog.comments %}
+                    <li>
+                        {{comment}}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
     <!-- new comment -->
-    <form method="POST" action="{{ url_for('comments', blog_id=blog._id )}}" class="teal accent-1 text-darken-4 indigo-text" id="comment-form">
+    <h5 class="white-text text-shadow center-align">Join in the conversation </h5>
+    <form method="POST" action="{{ url_for('comments', blog_id=blog._id )}}" class="blue lighten-4 indigo-text text-darken-4" id="comment-form">
         <div class="row">
             <div class="input-field col m8 offset-m2 ">
                 <i class="fa-solid fa-comment prefix"></i>

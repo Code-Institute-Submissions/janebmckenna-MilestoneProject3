@@ -97,8 +97,12 @@ footer{
 #comment-box{
     padding: 5px;
 }
+#comment-box li{
+    margin-bottom: 5px;
+}
 #comment-form{
     padding: 5px;
+    margin-bottom: 10px;
 }
 /* Responsive design tweeking */
 @media screen and (max-width: 540px){
