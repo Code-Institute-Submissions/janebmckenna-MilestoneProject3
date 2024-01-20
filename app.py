@@ -1,4 +1,5 @@
 import os
+import jwt
 from flask import (
     Flask, flash, render_template, 
     redirect, request, session, url_for)
@@ -6,6 +7,7 @@ from flask_pymongo import PyMongo
 from flask_mail import Mail, Message
 from bson.objectid import ObjectId
 from datetime import date
+from time import time
 from werkzeug.security import (
     generate_password_hash, check_password_hash)
 from itsdangerous import URLSafeSerializer
@@ -21,12 +23,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER')
 app.config['MAIL_PORT'] = os.environ.get('MAIL_PORT')
-app.config['MAIL_USE_TLS'] = os.environ.get('MAIL_USE_TLS')
+app.config['MAIL_USE_SSL'] = os.environ.get('MAIL_USE_SSL')
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 
 mongo = PyMongo(app)
 mail = Mail(app)
+
 
 @app.route("/")
 @app.route("/blog_posts")
@@ -99,7 +102,8 @@ def profile(username):
     blogs = list(mongo.db.blogs.find())
 
     if session["user"]:
-        return render_template("profile.html", username=username, blogs=blogs)
+        return render_template(
+            "profile.html", username=username, blogs=blogs)
 
     return redirect(url_for("login"))
 
@@ -191,15 +195,17 @@ def edit(blog_id):
 @app.route("/comments/<blog_id>", methods=["GET", "POST"])
 def comments(blog_id):
     if request.method == "POST":
-        submit= "User " + (session["user"]) + " commented: " + (request.form.get("comment"))
-
-        mongo.db.blogs.update_one({"_id": ObjectId(blog_id)}, { "$push":  {"comments": submit} })
+        submit= "User " + (
+            session["user"]) + " commented: " + (
+                request.form.get("comment"))
+        mongo.db.blogs.update_one(
+            {"_id": ObjectId(blog_id)}, { "$push":  {"comments": submit} })
         flash("Thank you, comment added")
 
     comments = mongo.db.blogs.comments.find()
-    print(comments)
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
-    return render_template("comments.html", blog=blog, comments=comments)
+    return render_template(
+        "comments.html", blog=blog, comments=comments)
 
 
 @app.route("/delete/<blog_id>")
@@ -211,10 +217,8 @@ def delete(blog_id):
 
 @app.route("/delete_comment/<comment>/<blog_id>")
 def delete_comment(comment, blog_id):
-    mongo.db.blogs.update_one({"_id": ObjectId(blog_id)}, {"$pull":{"comments":  comment}})
-            
-
-    # mongo.db.blogs.comments.delete_one()
+    mongo.db.blogs.update_one(
+        {"_id": ObjectId(blog_id)}, {"$pull":{"comments":  comment}})
     flash("Comment succesfully deleted")
     return redirect(url_for("blog_posts"))
 
@@ -224,8 +228,10 @@ def categories():
     admin = session["admin"]
     print(admin)
     if admin == "Yes":
-        categories = list(mongo.db.categories.find().sort("category_name",1))
-        return render_template("categories.html", categories=categories)
+        categories = list(
+            mongo.db.categories.find().sort("category_name",1))
+        return render_template(
+            "categories.html", categories=categories)
     return render_template("blogs.html")
 
 
@@ -248,11 +254,13 @@ def edit_category(category_id):
         submit = {
             "category_name": request.form.get("category_name")
         }
-        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, {"$set": submit})
+        mongo.db.categories.update_one(
+            {"_id": ObjectId(category_id)}, {"$set": submit})
         flash("Category Successfully Updated")
         return redirect(url_for('categories'))
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    category = mongo.db.categories.find_one(
+        {"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
 
 
@@ -275,42 +283,40 @@ def reset_request():
         if your email matches an account in our database 
         you will recieve a reset link''')
         if existing_user:
-            # grabs the email if the user exists
-            for key, val in existing_user.items():
-                if key == "email":
-                    user = str(val)
-                    send_mail(user)
+            send_mail(existing_user)
         else:
             pass
         return redirect(url_for('login'))
     return render_template("reset_request.html")
 
 
+def get_reset_token(self, expires):
+    return jwt.encode({'reset_password': self["email"], 
+            'exp': time()+ expires}, key=os.getenv('SECRET_KEY'), algorithm='HS256')
+
+
 # Sends reset mail to user
 def send_mail(user):
-    user = mongo.db.users.find_one({"email": user})
-    serial = URLSafeSerializer(app.secret_key)
-    print(user)
-    # token = serial.dumps({'email': user})
-    msg = Message(
-        'Password Reset Request', recipients = user['email'] , sender='noreply@lifeinblog.com',)
-    msg.body = f''' To reset your password, please follow the link below.
-    Your username is{{"user.user_name"}}
-    {{ url_for('verify_token' token=token)}}
+    token = get_reset_token(user, 1000)
 
-    If you didnt request a password reset please ignore this message. 
-    '''
-    print('sending mail')
+    msg = Message()
+    msg.subject = "Life in Blog - Password Reset"
+    msg.sender = "noreply@lifeinblog.com"
+    msg.recipients = user
+    msg.html = render_template('reset_email.html', user=user, token = token)
+
+    mail.send(msg)
 
 
 # checks the token from the password reset link
-def verify_token(token):
-    serial = URLSafeSerializer(app.secret_key)
-    try:
-        user_id = serial.loads(token)['user_id']
-    except:
-        return None
-    return mongo.db.users.find_one({'user_id': user_id})
+def verify_reset_token(token):
+        try:
+            email = jwt.decode(token,
+            key=os.getenv('SECRET_KEY'), algorithms=['HS256'])['reset_password']
+            return email
+        except Exception as e:
+            print(e)
+            return
 
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
