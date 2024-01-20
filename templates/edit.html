@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
     <h3 class="white-text text-shadow center-align">Edit Blog</h3>
-    <div class="row form-bg">
+    <div class="row form-bg blue lighten-4 indigo-text text-darken-4">
         <form class="col s12" method="POST" action="{{ url_for('edit', blog_id=blog._id )}}">
             <!-- category choice -->
             <div class="row">
-                <div class="input-field col m8 offset-m2 white-text">
+                <div class="input-field col s12 m8 offset-m2 ">
                     <i class="fa-solid fa-icons prefix"></i>
                     <select id="category_name" name="category_name" class="validate" required>
                         {% for category in categories %}
@@ -21,7 +21,7 @@
             </div>
             <!-- blog title -->
             <div class="row">
-                <div class="input-field col m8 offset-m2 white-text">
+                <div class="input-field col s12 m8 offset-m2">
                     <i class="fa-solid fa-pen prefix"></i>
                     <input id="title" name="title" type="text" class="validate" minlength="5" maxlength="50" 
                         value="{{ blog.title }}" required>
@@ -30,7 +30,7 @@
             </div>
             <!-- blog content -->
             <div class="row">
-                <div class="input-field col m8 offset-m2 white-text">
+                <div class="input-field col s12 m8 offset-m2">
                     <i class="fa-solid fa-comment prefix"></i>
                     <textarea id="blog_content" name="blog_content" class="materialize-textarea validate" 
                         minlength="20" maxlength="1000">{{ blog.blog_content }}</textarea>

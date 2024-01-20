@@ -53,17 +53,39 @@ _As a RETURNING user of the site I want to be able to:_
 - Login and out of the site.
 - Easily filter to my favourite blogger
 - Write my own blogs
+- Edit/Update my blogs
+- Delete my blogs
+- Comment on other users blogs
 
+_As an admin of the site I want to be able to:_
+- Edit or Delete all Blogs
+- Manage the blog categories
+- Delete all comments
 
 
 ## UX-scope
-
 
 **Existing Features**
 
 **Home Page**
 
+![homepage LoggedOut](static/Images/homepage(loggedout).png)
+
 **Nav Bar**
+
+Links available within the navbar vary dependent on access. 
+
+_Logged Out_
+
+![Nav LoggedOut](static/Images/Nav(loggedout).png)
+
+_Logged In_
+
+![Nav LoggedIn](static/Images/nav(loggedin).png)
+
+_Admin_
+
+![Nav Admin](static/Images/nav(admin).png)
 
 **Logo**
 
@@ -91,14 +113,40 @@ _As a RETURNING user of the site I want to be able to:_
 **Commenting on blogs**
 I decided to avail of the flexibility of a non relational database by simply storing comments in a array within the blog object. 
 
+**CRUD**
+
+User recieves feedback when actions are complete and is asked to confirm before deletion. 
+
+![User Feedback](static/Images/blog(add).png)
+
+_Create:_ 
+I can create user account, blog posts and comments. 
+
+![Register Account](static/Images/register.png)
+
+_Read:_ 
+I can read all user blogs and comments
+
+![Read blog and comments](static/Images/readcomments.png)
+
+_Update:_
+I can update my own blogs
+
+![Edit Blog](static/Images/edit.png)
+
+_Delete:_
+I can delete my own blogs. 
+
+Additionally as an admin I can also:
+CRUD - categories, all blogs and all comments. 
+
 **Future Improvements**
 - Contact page
-- Ability to comment on Blogs - implimented
 - Ability to celebrate Blogs
 - Reset password function
 
 
-**Blogs Filtered to most recent**
+**Blogs Filtered to most Recent**
 
 **Celebrating blogs**
 
@@ -108,7 +156,7 @@ I decided to avail of the flexibility of a non relational database by simply sto
 **Navigation**
 I have decoded to use a traditional navigation bar with links displaying to the relevant users.
 Not logged in users will see - Home, Login and Register
-Users will see - Home, Logout, New Blog, Profile
+Logged in users will see - Home, Logout, New Blog, Profile
 Admin users will see - Home, Logout, New Blog, Profile and manage categories. 
 
 The Navigation bar collapses into a hamburger icon which users are familiar with on mobile devices. 
@@ -134,7 +182,7 @@ The Navigation bar collapses into a hamburger icon which users are familiar with
 
 ## UX-surface
 
-**Colour Palette and Imagery**
+**Colour Palette**
 
 
 **Fonts**
@@ -170,7 +218,7 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 **Content**
 
 - [Materialise Version 1.0.0](https://materializecss.com/about.html)
-- I used [colormind.io](https://mycolor.space/) to decide on the colour scheme of the site, to achieve the retro feel I intended. 
+- I used [mycolor.space](https://mycolor.space/) to decide on the colour scheme of the site.
 - Icons were sourced from [Font Awesome](https://fontawesome.com)
 - My fonts were taken from [Google Fonts](https://fonts.google.com/)
 - Wireframes were created using [Balsamiq](https://balsamiq.com/)

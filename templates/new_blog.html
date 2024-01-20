@@ -5,7 +5,7 @@
         <form class="col s12 blue lighten-4 indigo-text text-darken-4" method="POST" action="{{ url_for('new_blog')}}">
             <!-- category choice -->
             <div class="row">
-                <div class="input-field col m8 offset-m2">
+                <div class="input-field col s12 m8 offset-m2">
                     <i class="fa-solid fa-icons prefix"></i>
                     <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose your category</option>
@@ -18,7 +18,7 @@
             </div>
             <!-- blog title -->
             <div class="row">
-                <div class="input-field col m8 offset-m2">
+                <div class="input-field col s12 m8 offset-m2">
                     <i class="fa-solid fa-pen prefix"></i>
                     <input id="title" name="title" type="text" class="validate" minlength="5" maxlength="50" required>
                     <label for="title">Blog Title</label>
@@ -26,7 +26,7 @@
             </div>
             <!-- blog content -->
             <div class="row">
-                <div class="input-field col m8 offset-m2">
+                <div class="input-field col s12 m8 offset-m2">
                     <i class="fa-solid fa-comment prefix"></i>
                     <textarea id="blog_content" name="blog_content" class="materialize-textarea validate" 
                         minlength="20" maxlength="2000"></textarea>
