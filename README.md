@@ -85,19 +85,20 @@ _As a RETURNING user of the site I want to be able to:_
 
 **Administrator Features**
 - Manage Categories
-- Delete blogs
+- Delete Blogs
+- Delete Comments
 
+**Commenting on blogs**
+I decided to avail of the flexibility of a non relational database by simply storing comments in a array within the blog object. 
 
 **Future Improvements**
 - Contact page
-- Ability to comment on Blogs
+- Ability to comment on Blogs - implimented
 - Ability to celebrate Blogs
 - Reset password function
 
 
 **Blogs Filtered to most recent**
-
-**Commenting on blogs**
 
 **Celebrating blogs**
 
