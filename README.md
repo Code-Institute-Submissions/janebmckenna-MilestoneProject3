@@ -179,7 +179,15 @@ Allow users to reset their passwords and be reminded of their user name via emai
 
 ## UX-structure
 
-All functions are displayed to the relevant users 
+- All functions are displayed to the relevant users dependant on login/admin status. 
+- Submit buttons are provided at all points of creation, ie registration, new blog, new comment, new category, editing a blog. 
+- Cancel and reset buttons are provided where appropriate to avoid the need to use browser controls. 
+- Pop out accordiation is used to read blog content. 
+- To see comments users can click on the accompanying comment button on each blog. 
+
+**Logo**
+
+Is consitantly displayed at the top of every page to allow users a quick return to the homepage. 
 
 **Navigation**
 
@@ -197,6 +205,7 @@ I decided to use a traditional footer with a link to my github repository.
 **Data Structure**
 ![Data Structure](static/Images/Wireframes/Database.png)
 
+Once I had MVP complete I decided to add the additional functionality of commenting on blogs. I availed of the flexibility of a non relational DB. storing the comments as an array within the blog object. 
 
 ## UX-skeleton
 
