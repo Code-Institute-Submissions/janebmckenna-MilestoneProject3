@@ -19,8 +19,19 @@
                 {% for comment in blog.comments %}
                     <li>
                         {% if (session.user|lower == blog.user|lower) or (session.admin|lower == "yes"|lower) %}
-                            <a href="{{ url_for('delete_comment', comment= comment, blog_id=blog._id)}}" class="btn-small red accent-4" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+                            <a href="#delete-modal2{{ blog._id }}" class="btn-small red accent-4 modal-trigger">Delete</a>
                             </a>
+                            <!-- Modal Confirm Delete -->
+                            <div id="delete-modal2{{ blog._id }}" class="modal">
+                                <div class="modal-content">
+                                    <h4 class="black-text">Delete Comment</h4>
+                                    <p class="black-text">Are you sure you want to delete this comment?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{{ url_for('delete', blog_id= blog._id) }}" class="modal-close waves-effect waves-red btn-flat">Delete</a>
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                </div>
+                            </div>
                         {% endif %}
                         {{comment}}
                     </li>
