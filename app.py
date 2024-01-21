@@ -236,6 +236,7 @@ def categories():
             mongo.db.categories.find().sort("category_name",1))
         return render_template(
             "categories.html", categories=categories)
+
     return render_template("blogs.html")
 
 
@@ -307,7 +308,7 @@ def send_mail(user):
     msg.subject = "Life in Blog - Password Reset"
     msg.sender = "noreply@lifeinblog.com"
     msg.recipients = user
-    msg.html = render_template('reset_email.html', user=user, token = token)
+    msg.html = render_template('reset_email.html', user=user, token=token)
 
     mail.send(msg)
 

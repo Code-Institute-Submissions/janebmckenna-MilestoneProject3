@@ -92,18 +92,30 @@ _Admin_
 ![Logo](static/Images/logo-white.png)
 
 **Search Feature**
+Search allows users to search by username, category, or keywords from the title and/or content of the blog. 
+
+![Search](static/Images/search.png)
 
 **Blog Feed**
+Blog feed displays the most recent by date created at the top of the feed. In future I could expand this to log the time and date the post is created to curate the display further. 
+
+![blog feed](static/Images/blogs.png)
 
 **Footer**
 
 **Register Page**
 
+![registration form](static/Images/register.png)
+
 **Login Page**
+
+![Login](static/Images/Login.png)
 
 **Profile Page**
 
 **Logout**
+
+![Logout](static/Images/logout.png)
 
 **Administrator Features**
 - Manage Categories
@@ -114,7 +126,7 @@ _Admin_
 
 I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visability of which user commented without relating directly back to the user object within the database I pushed the username to the database as part of the comment. 
 
-**CRUD**
+**CRUD Functionality**
 
 User recieves feedback when actions are complete and is asked to confirm before deletion. 
 
@@ -138,6 +150,8 @@ I can update my own blogs
 _Delete:_
 I can delete my own blogs. 
 
+![Delete Blog](static/Images/deleteblog.jpg)
+
 Additionally as an admin I can also:
 CRUD - categories, all blogs and all comments. 
 
@@ -145,9 +159,6 @@ CRUD - categories, all blogs and all comments.
 - Contact page
 - Ability to celebrate Blogs
 - Reset password function
-
-
-**Blogs Filtered to most Recent**
 
 **Celebrating blogs**
 
