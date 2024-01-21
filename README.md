@@ -57,7 +57,7 @@ _As a RETURNING user of the site I want to be able to:_
 _As an admin of the site I want to be able to:_
 - Edit or Delete all Blogs
 - Manage the blog categories
-- Delete all comments
+- Delete comments from all users
 
 
 ## UX-scope
@@ -74,7 +74,7 @@ Links available within the navbar vary dependent on access.
 
 _Logged Out_
 
-![Nav LoggedOut](static/Images/Nav(loggedout).png)
+![Nav LoggedOut](static/Images/nav(loggedout).png)
 
 _Logged In_
 
@@ -100,15 +100,19 @@ Blog feed displays the most recent by date created at the top of the feed. In fu
 
 **Footer**
 
+![Footer](static/Images/footer.png)
+
 **Register Page**
 
 ![registration form](static/Images/register.png)
 
 **Login Page**
 
-![Login](static/Images/Login.png)
+![Login](static/Images/login.png)
 
 **Profile Page**
+
+![profile](static/Images/profile.png)
 
 **Logout**
 
@@ -116,12 +120,22 @@ Blog feed displays the most recent by date created at the top of the feed. In fu
 
 **Administrator Features**
 - Manage Categories
+
+![categories](static/Images/categories.png)
+
 - Delete Blogs
+
+![delete all blogs](static/Images/admin-home.png)
+
 - Delete Comments
+
+![delete comments](static/Images/admin-comments.png)
 
 **Commenting on blogs**
 
 I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visability of which user commented without relating directly back to the user object within the database I pushed the username to the database as part of the comment. 
+
+![comments](static/Images/readcomments.png)
 
 **CRUD Functionality**
 
@@ -133,6 +147,7 @@ _Create:_
 I can create user account, blog posts and comments. 
 
 ![Register Account](static/Images/register.png)
+![new blog](static/Images/blog-form.png)
 
 _Read:_ 
 I can read all user blogs and comments
@@ -153,13 +168,13 @@ Additionally as an admin I can also:
 CRUD - categories, all blogs and all comments. 
 
 **Future Improvements**
-- Contact page
-- Ability to celebrate Blogs
-- Reset password function
+- **Contact page**
+Allow users to contact site admin to suggest improvements or with issues. 
+- **Ability to celebrate Blogs** 
+Allow users to celebrate or acknowledge their appreciation of a blog without commenting. 
+- **Reset password function**
+Allow users to reset their passwords and be reminded of their user name via email. 
 
-**Celebrating blogs**
-
-  
 ## UX-structure
 
 **Navigation**
