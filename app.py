@@ -147,7 +147,7 @@ def logout():
     # remove user/admin from session cookies
     flash ("You have been logged out")
     session.pop('user')
-    session.pop('admin')
+    session.pop('admin', None)
     return redirect(url_for("login"))
 
 

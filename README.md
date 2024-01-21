@@ -1,10 +1,10 @@
-# Blog Website
+# Life in Blog
 [View live project Here](https://life-in-blog-cd65fb4d61a0.herokuapp.com/)
 ***
 
-Blog webiste is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog may help to avoid a pitfall in the road. Blog website documents all of lifes ups and downs.  
+Life in Blog is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog for others may help to avoid a pitfall in the road. Life in Blog allows users to write about all of lifes experiences, ups and downs.  
 
-![Mock Up](Image of mock up)
+![Mock Up](static/Images/mockup.png)
 
 - [Blog Website](#blog-website)
 - [User Experience UX](#user-experience-ux)
@@ -111,7 +111,8 @@ _Admin_
 - Delete Comments
 
 **Commenting on blogs**
-I decided to avail of the flexibility of a non relational database by simply storing comments in a array within the blog object. 
+
+I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visability of which user commented without relating directly back to the user object within the database I pushed the username as part of the comment. 
 
 **CRUD**
 

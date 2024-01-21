@@ -76,6 +76,8 @@
 |Search on profile page redirecting back to home page|I had reused code for the search and on testing realised I was still directing back to the home page. When I corrected this code I realised that as the length of blogs > 0 if you search for a term that exisits in another users blog no blogs appear but the No results found message doesnt appear|
 
 
+Remove admin cookie on deployed site - non admin
+https://www.techwithtim.net/tutorials/flask/sessions
 
 
 [Return to README](README.md)
