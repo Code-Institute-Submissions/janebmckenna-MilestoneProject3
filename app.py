@@ -34,7 +34,7 @@ mail = Mail(app)
 @app.route("/")
 @app.route("/blog_posts")
 def blog_posts():
-    blogs = list(mongo.db.blogs.find())
+    blogs = list(mongo.db.blogs.find().sort("date", -1))
     return render_template("blogs.html", blogs=blogs)
 
 
