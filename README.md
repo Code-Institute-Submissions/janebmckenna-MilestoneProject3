@@ -22,13 +22,13 @@ Life in Blog is a user centric app designed to enable users to follow and extrac
 
 ## UX-strategy
 
-The goal is to provide a blog website for users to post their thoughts and feelings on various subjects from books, tv shows to day to day life. 
+The goal is to provide a blog website for users to blog their thoughts and feelings on various subjects from books, tv shows to day to day life. 
 
 **Developer Goals**
-- Build portfoilio: 
+- Build portfolio: 
 - Develop technical skills:
 
-The MVP of this project is simple but the app can be developed to include commenting on other posts, celebrating the post content, including images and potential monitisation through advertising or affliate links. 
+The MVP of this project is simple but the app can be developed to include commenting on other blogs, celebrating the blog content, including images and potential monetisation through advertising or affiliate links. 
 
 **User Goals**
 - Access to information and inspiration, what book will they read next or where will they travel to?
@@ -133,13 +133,13 @@ Blog feed displays the most recent by date created at the top of the feed. In fu
 
 **Commenting on blogs**
 
-I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visability of which user commented without relating directly back to the user object within the database I pushed the username to the database as part of the comment. 
+I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visibility of which user commented without relating directly back to the user object within the database I pushed the username to the database as part of the comment. 
 
 ![comments](static/Images/readcomments.png)
 
 **CRUD Functionality**
 
-User recieves feedback when actions are complete and is asked to confirm before deletion. 
+User receives feedback when actions are complete and is asked to confirm before deletion. 
 
 ![User Feedback](static/Images/blog(add).png)
 
@@ -252,10 +252,12 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 **Code**
 - I learned how to format the date within my Python function from [this site ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
 - I learned how to delete an object from an array in MongoDB in the documentation [here](https://www.mongodb.com/docs/manual/reference/operator/update/pull/#:~:text=If%20the%20specified%20to,exact%20same%20fields%20and%20values.)
-- While developing this project I refered back to code I had written during the task manager mini project.
+- While developing this project I referred back to code I had written during the task manager mini project.
 
 
 
 **Advice**
+
+I would like to thank my mentor for his help and support during this project espcially but not limited to challenging me to amend my logic to solve bugs within functions. 
 
 

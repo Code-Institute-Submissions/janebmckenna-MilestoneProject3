@@ -17,7 +17,7 @@
 |**Testing** |**iPhone12 safari** |**iPad Pro 9.7" safari**|**MacBook Air Chrome**|**MacBook Air Safari**|**Lenovo MS OS Edge**|**Lenovo MS OS Edge**|**Chrome Developer Tools**|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |Responsive|
-|Delete/Edit buttons visable to owner user|
+|Delete/Edit buttons visible to owner user|
 |Forms won't submit without appropriate information| Yes | Yes|Yes|Yes|Yes|Yes|Yes|
 |User Flash messages appear|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
@@ -53,7 +53,7 @@
 |Search Function - Homepage|Type search word press enter|Returns appropriate Blogs or No results found|Pass|
 |Search Function - Homepage|Type search word click Submit|Returns appropriate Blogs or No results found|Pass|
 |Reset Button - homepage|Click reset button|Clears the search bar and reloads all blogs|Pass|
-|Accordian - Homepage |click on blog|expands one blog at a time|Pass|
+|Accordion - Homepage |click on blog|expands one blog at a time|Pass|
 |Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
 |Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Footer|Click Github logo|Opens Jane McKennas github in a new window|Pass|
@@ -65,9 +65,9 @@
 |**User Story**|**Outcome**|**Screengrabs**|
 |-----|-----|-----|
 |**_FIRST TIME User_**|
-|Intuitively and easily navigate the site|Layout is traditional and intuitive with a familiar naivigational layout|![Homepage](static/Images/homepage(loggedout).png) ![Nav](static/Images/nav(loggedin).png) |
+|Intuitively and easily navigate the site|Layout is traditional and intuitive with a familiar navigational layout|![Homepage](static/Images/homepage(loggedout).png) ![Nav](static/Images/nav(loggedin).png) |
 |Browse blog content|I am able to view and browse content from users on the homepage without registering. After logging in I can also see my own profile with my blogs|![Homepage](static/Images/homepage(loggedout).png)|
-|Register as a user|I can register a new account easily and intutively|![registration page](static/Images/register.png) |
+|Register as a user|I can register a new account easily and intuitively|![registration page](static/Images/register.png) |
 |Logout of the site|I can logout of the site and am asked to confirm that I want to|![logout](static/Images/logout.png) |
 |**_RETURNING user_**|
 |Login and out of the site.|I can log in and out of the site easily|![login](static/Images/login.png) |
@@ -90,10 +90,10 @@
 |**Bug**|**Resolution**|
 |-----|-----|
 |Logo not showing on Profile Page|Forgot to use the jinga templating to reference the img file. Only erroring on the profile page as the page required additional parameters to be passed through|
-|Non registered user attempted login - errored|I had refactored my login code to check is the user was 'is_admin' but I hadnt tested it with a non registered user, I had to change the order of the function to allow the flash to the non registered user|
+|Non registered user attempted login - errored|I had refactored my login code to check is the user was 'is_admin' but I hadn’t tested it with a non registered user, I had to change the order of the function to allow the flash to the non registered user|
 |Confirmation of deletion - modal not displaying and/or error|When attempting to reuse my modal to display confirmation of deletion I encountered an issue with passing through the object_id. I have a temporary workaround using js onclick method while I establish how to pass the object_id though the modal|
-|Search on profile page redirecting back to home page|I had reused code for the search and on testing realised I was still directing back to the home page. When I corrected this code I realised that as the length of blogs > 0 if you search for a term that exisits in another users blog no blogs appear but the No results found message doesnt appear. I worked out a solution from reading [this](https://www.w3schools.com/python/python_mongodb_query.asp) and [this](https://blog.enterprisedna.co/python-filter-list-5-practical-methods-explained/#:~:text=You%20can%20filter%20object%20by,each%20element%20in%20the%20iterable.) within the search function for the profile I first queried the database creating a list of all teh blogs containing the search parameters then filtered that list to just items where the user equal to the username.|
-|On the deployed site when a non admin attmepted to log out, a session cokkie for admin was not found and threw and error.|I found a solution [here](https://www.techwithtim.net/tutorials/flask/sessions). Which instructs what to do if the key in this case admin doesnt exist. Which solved the problem.|
+|Search on profile page redirecting back to home page|I had reused code for the search and on testing realised I was still directing back to the home page. When I corrected this code I realised that as the length of blogs > 0 if you search for a term that exists in another users blog no blogs appear but the No results found message doesn’t appear. I worked out a solution from reading [this](https://www.w3schools.com/python/python_mongodb_query.asp) and [this](https://blog.enterprisedna.co/python-filter-list-5-practical-methods-explained/#:~:text=You%20can%20filter%20object%20by,each%20element%20in%20the%20iterable.) within the search function for the profile I first queried the database creating a list of all the blogs containing the search parameters then filtered that list to just items where the user equal to the username.|
+|On the deployed site when a non admin attempted to log out, a session cookie for admin was not found and threw and error.|I found a solution [here](https://www.techwithtim.net/tutorials/flask/sessions). Which instructs what to do if the key in this case admin doesn’t exist. Which solved the problem.|
 
 
 
