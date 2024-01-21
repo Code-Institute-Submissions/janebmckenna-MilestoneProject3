@@ -30,16 +30,13 @@ The goal is to provide a blog website for users to post their thoughts and feeli
 
 The MVP of this project is simple but the app can be developed to include commenting on other posts, celebrating the post content, including images and potential monitisation through advertising or affliate links. 
 
-
-
 **User Goals**
-- Access to imformation and inspiration, what book will they read next or where will they travel to?
+- Access to information and inspiration, what book will they read next or where will they travel to?
 - Passing time reading content.
 - Seemless Navigation
 - Sharing content/Post their thoughts and feelings on a variety of subjects. 
 - Search blogs for a specific user or content. 
 - Responsive design. Can be accessed on the go. 
-
 
 **User Stories**
 
@@ -235,7 +232,7 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 - Icons were sourced from [Font Awesome](https://fontawesome.com)
 - My fonts were taken from [Google Fonts](https://fonts.google.com/)
 - Wireframes were created using [Balsamiq](https://balsamiq.com/)
-- I used [Lucid Chart](https://www.lucidchart.com) 
+- Database schematic was created using [Lucid Chart](https://www.lucidchart.com) 
 
 **Code**
 - I learned how to format the date within my Python function from [this site ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 

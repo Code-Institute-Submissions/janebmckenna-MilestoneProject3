@@ -62,6 +62,22 @@
 
 ## User Story Validation
 
+|**User Story**|**Outcome**|**Screengrabs**|
+|-----|-----|-----|
+|**_FIRST TIME User_**|
+|Intuitively and easily navigate the site|Layout is traditional and intuitive with a familiar naivigational layout|![Homepage](static/Images/homepage(loggedout).png) ![Nav](static/Images/nav(loggedin).png) |
+|Browse blog content|I am able to view and browse content from users on the homepage without registering. After logging in I can also see my own profile with my blogs|![Homepage](static/Images/homepage(loggedout).png)|
+|Register as a user|I can register a new account easily and intutively|![registration page](static/Images/register.png) |
+|Logout of the site|I can logout of the site and am asked to confirm that I want to|![logout](static/Images/logout.png) |
+|**_RETURNING user_**|
+|Login and out of the site.|I can log in and out of the site easily|![login](static/Images/Login.png) |
+|Easily filter to my favourite blogger|I can use the search function to seacrh by my favourite bloggers username||
+|Write my own blogs|I can write my own new blogs and receive visual confirmation that the blog was added|![newblog](static/Images/blog(add).png) |
+|Edit/Update my blogs|I can amend my own blogs if i wish to.|![edit](static/Images/edit.png) |
+|Delete my blogs|I can delete my own blogs if I wish to and am asked to confirm before deletion|![delete](static/Images/deleteblog.jpg) |
+|Comment on other users blogs|||
+|**_Admin user_**|
+
 ## Lighthouse Audit
 
 ## Validator Audit
