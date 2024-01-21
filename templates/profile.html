@@ -4,7 +4,7 @@
     <h3 class="white-text text-shadow center-align">{{username.upper()}}'s Profile</h3>
     <!-- Search Box -->
     <div class="row card-panel grey lighten-5">
-        <form action="{{ url_for('search_profile') }}" method="post" class="col s12">
+        <form action="{{ url_for('search_profile', username=session['user']) }}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12">
                     <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
@@ -28,7 +28,6 @@
         <ul class="collapsible popout">
             {% for blog in blogs %}
                 <li>
-                    {% if session.user|lower == blog.user|lower %}
                     <div class="collapsible-header blue lighten-5 indigo-text text-darken-4">
                         <i class="fas fa-caret-down"></i>
                             <a href="{{ url_for('delete', blog_id= blog._id)}}" class="btn-small red accent-4" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
@@ -53,7 +52,6 @@
                             <a href="{{ url_for('comments', blog_id=blog._id)}}" class="btn-small teal accent-2 commentbtn"><i class="fa-solid fa-eye prefix"></i> Comments</a>
                         </p>
                     </div>
-                    {% endif %}
                 </li>
             {% endfor %}
         </ul>

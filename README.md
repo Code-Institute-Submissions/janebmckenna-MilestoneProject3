@@ -112,7 +112,7 @@ _Admin_
 
 **Commenting on blogs**
 
-I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visability of which user commented without relating directly back to the user object within the database I pushed the username as part of the comment. 
+I decided to avail of the flexibility of a non relational database by simply storing comments in an array within the blog object. To maintain visability of which user commented without relating directly back to the user object within the database I pushed the username to the database as part of the comment. 
 
 **CRUD**
 

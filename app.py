@@ -45,10 +45,11 @@ def search():
     return render_template("blogs.html", blogs=blogs)
 
 
-@app.route("/search_profile", methods=["GET", "POST"])
-def search_profile():
+@app.route("/search_profile/<username>", methods=["GET", "POST"])
+def search_profile(username):
     query = request.form.get('query')
-    blogs = list(mongo.db.blogs.find({"$text": {"$search":query}}))
+    all_blogs = list(mongo.db.blogs.find({"$text": {"$search":query}}))
+    blogs = list(item for item in all_blogs if item["user"] == username)
     username =mongo.db.users.find_one(
     {"username": session["user"]})["username"]
     return render_template("profile.html", blogs=blogs, username=username)
@@ -98,8 +99,10 @@ def register():
 def profile(username):
     # grab the session users username from the database
     username =mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    blogs = list(mongo.db.blogs.find())
+        {"username": session["user"]})["username"] 
+    myquery = { "user": username }
+    blogs = list(mongo.db.blogs.find(myquery))
+
 
     if session["user"]:
         return render_template(
