@@ -74,10 +74,8 @@
 |Non registered user attempted login - errored|I had refactored my login code to check is the user was 'is_admin' but I hadnt tested it with a non registered user, I had to change the order of the function to allow the flash to the non registered user|
 |Confirmation of deletion - modal not displaying and/or error|When attempting to reuse my modal to display confirmation of deletion I encountered an issue with passing through the object_id. I have a temporary workaround using js onclick method while I establish how to pass the object_id though the modal|
 |Search on profile page redirecting back to home page|I had reused code for the search and on testing realised I was still directing back to the home page. When I corrected this code I realised that as the length of blogs > 0 if you search for a term that exisits in another users blog no blogs appear but the No results found message doesnt appear|
+|On the deployed site when a non admin attmepted to log out, a session cokkie for admin was not found and threw and error.|I found a solution [here](https://www.techwithtim.net/tutorials/flask/sessions). Which instructs what to do if the key in this case admin doesnt exist. Which solved the problem.|
 
-
-Remove admin cookie on deployed site - non admin
-https://www.techwithtim.net/tutorials/flask/sessions
 
 
 [Return to README](README.md)

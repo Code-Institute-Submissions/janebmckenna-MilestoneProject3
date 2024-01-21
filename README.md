@@ -195,8 +195,9 @@ I will rely upon a combination of materialize and media queries to ensure the ap
 
 
 # Technologies-used
-- **Libraries:** jQuery, Materialize
+- **Libraries:** jQuery, Materialize, Flask
 - **Languages:** HTML, CSS, JavaScript, Python
+- **Database Management:** MongoDB
 - **Gitpod:** used as a cloud code editor.
 - **GitHub:** used as a cloud based code repository.
 - **Heroku:** was used to deploy the app. 
@@ -223,13 +224,12 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 - Icons were sourced from [Font Awesome](https://fontawesome.com)
 - My fonts were taken from [Google Fonts](https://fonts.google.com/)
 - Wireframes were created using [Balsamiq](https://balsamiq.com/)
+- I used [Lucid Chart](https://www.lucidchart.com) 
 
 **Code**
 - I learned how to format the date within my Python function from [this site ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
 - I learned how to delete an object from an array in MongoDB in the documentation [here](https://www.mongodb.com/docs/manual/reference/operator/update/pull/#:~:text=If%20the%20specified%20to,exact%20same%20fields%20and%20values.)
-
-
-**Images**
+- While developing this project I refered back to code I had written during the task manager mini project.
 
 
 
