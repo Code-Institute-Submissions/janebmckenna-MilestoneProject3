@@ -23,6 +23,7 @@
         </form>
     </div>
     <h3 class="white-text text-shadow center-align">My Blogs</h3>
+    <!-- Loop to display blogs owned by the user -->
     {% if blogs|length > 0 %}
         <ul class="collapsible popout">
             {% for blog in blogs %}

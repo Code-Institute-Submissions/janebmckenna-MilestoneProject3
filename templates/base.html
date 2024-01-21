@@ -21,38 +21,46 @@
 </head>
 
 <body>
+  <!-- Large Screen Nav -->
   <nav class="indigo darken-4">
     <div class="nav-wrapper">
       <a href="{{ url_for('blog_posts')}}" class="brand-logo"><img src="{{ url_for('static', filename = 'Images/logo-white.png') }}" alt="Logo for life in blog" id="logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
       <ul class="right hide-on-med-and-down" id="nav-links">
         <li><a href="{{ url_for('blog_posts')}}">Home</a></li>
+        <!-- Links for logged in Users -->
         {% if session.user %}
-        <li><a href="{{ url_for('profile', username=session['user'])}}">My Profile</a></li>
-        <li><a href="{{ url_for('new_blog')}}">New Post</a></li>
-        {% if session.admin|lower == "yes"|lower %}
-          <li><a href="{{ url_for('categories')}}">Manage Categories</a></li>
-        {% endif %}
-        <li><a href="#modal1" class="modal-trigger">Log Out</a></li>
+          <li><a href="{{ url_for('profile', username=session['user'])}}">My Profile</a></li>
+          <li><a href="{{ url_for('new_blog')}}">New Post</a></li>
+          <!-- Link for admin user -->
+          {% if session.admin|lower == "yes"|lower %}
+            <li><a href="{{ url_for('categories')}}">Manage Categories</a></li>
+          {% endif %}
+          <li><a href="#modal1" class="modal-trigger">Log Out</a></li>
+        <!-- Links for users who are not logged in  -->
         {% else %}
-        <li><a href="{{ url_for('login')}}">Log In</a></li>
-        <li><a href="{{ url_for('register')}}">Register</a></li>
+          <li><a href="{{ url_for('login')}}">Log In</a></li>
+          <li><a href="{{ url_for('register')}}">Register</a></li>
         {% endif %}
       </ul>
     </div>
   </nav>
+  <!-- Collapsible nav for small screen -->
   <ul class="sidenav" id="mobile-demo">
     <li>
       <h5 class="center-align indigo-text darken-4-text">Life in Blog</h5>
     </li>
     <li><a href="{{ url_for('blog_posts')}}">Home</a></li>
+    <!-- Links for logged in Users -->
     {% if session.user %}
       <li><a href="{{ url_for('profile', username=session['user'])}}">My Profile</a></li>
       <li><a href="{{ url_for('new_blog')}}">New Post</a></li>
+      <!-- Link for admin user -->
       {% if session.admin|lower == "yes"|lower %}
         <li><a href="{{ url_for('categories')}}">Manage Categories</a></li>
       {% endif %}
       <li><a href="#modal1" class="modal-trigger">Log Out</a></li>
+    <!-- Links for users who are not logged in  -->
     {% else %}
       <li><a href="{{ url_for('login')}}">Log In</a></li>
       <li><a href="{{ url_for('register')}}">Register</a></li>
@@ -100,12 +108,6 @@
             <a class="white-text right github" href="https://github.com/janebmckenna" target="_blank" aria-label="View GitHub profile"><i class="footer-logo fa-brands fa-github"></i></a>
           </div>
           <div class="white-text">
-            <!-- After MVP Help page?
-            <p class="help-button">Help</p>
-            <a href="#" target="_blank"
-              ><i class="fa-regular fa-envelope"></i>Contact Us</a
-            > -->
-          </div>
         </div>
       </div>
     </div>
