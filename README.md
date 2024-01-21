@@ -89,11 +89,13 @@ _Admin_
 ![Logo](static/Images/logo-white.png)
 
 **Search Feature**
+
 Search allows users to search by username, category, or keywords from the title and/or content of the blog. 
 
 ![Search](static/Images/search.png)
 
 **Blog Feed**
+
 Blog feed displays the most recent by date created at the top of the feed. In future I could expand this to log the time and date the post is created to curate the display further. 
 
 ![blog feed](static/Images/blogs.png)
@@ -177,7 +179,10 @@ Allow users to reset their passwords and be reminded of their user name via emai
 
 ## UX-structure
 
+All functions are displayed to the relevant users 
+
 **Navigation**
+
 I have decoded to use a traditional navigation bar with links displaying to the relevant users.
 Not logged in users will see - Home, Login and Register
 Logged in users will see - Home, Logout, New Blog, Profile
@@ -185,9 +190,8 @@ Admin users will see - Home, Logout, New Blog, Profile and manage categories.
 
 The Navigation bar collapses into a hamburger icon which users are familiar with on mobile devices. 
 
-
 **Footer**
-
+I decided to use a traditional footer with a link to my github repository. 
 
 
 **Data Structure**

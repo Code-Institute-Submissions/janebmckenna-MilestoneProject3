@@ -224,7 +224,10 @@ def delete_comment(comment, blog_id):
     mongo.db.blogs.update_one(
         {"_id": ObjectId(blog_id)}, {"$pull":{"comments":  comment}})
     flash("Comment succesfully deleted")
-    return redirect(url_for("blog_posts"))
+    comments = mongo.db.blogs.comments.find()
+    blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
+    return render_template(
+        "comments.html", blog=blog, comments=comments)
 
 
 @app.route("/categories")
