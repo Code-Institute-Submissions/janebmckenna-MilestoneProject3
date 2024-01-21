@@ -214,6 +214,7 @@ def comments(blog_id):
 
 @app.route("/delete/<blog_id>")
 def delete(blog_id):
+    blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     mongo.db.blogs.delete_one({"_id": ObjectId(blog_id)})
     flash("Blog succesfully deleted")
     return redirect(url_for("blog_posts"))

@@ -203,6 +203,7 @@ I decided to use a traditional footer with a link to my github repository.
 
 
 **Data Structure**
+
 ![Data Structure](static/Images/Wireframes/Database.png)
 
 Once I had MVP complete I decided to add the additional functionality of commenting on blogs. I availed of the flexibility of a non relational DB. storing the comments as an array within the blog object. 
