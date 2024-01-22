@@ -20,6 +20,7 @@
 |Delete/Edit buttons visible to owner user|
 |Forms won't submit without appropriate information| Yes | Yes|Yes|Yes|Yes|Yes|Yes|
 |User Flash messages appear|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Choose category from drop down list on blog form|No||Yes|Yes|Yes|Yes|Yes|
 
 |**Additional Devices Tested Using Chrome Developer Tools**|**Responsive Observations**
 |-----|-----|
@@ -94,7 +95,7 @@
 |Confirmation of deletion - modal not displaying and/or error|When attempting to reuse my modal to display confirmation of deletion I encountered an issue with passing through the object_id. I have a temporary workaround using js onclick method while I establish why the object_id won't pass though the modal. Through trial and error I fixed this error by positioning the modal code next to the button|
 |Search on profile page redirecting back to home page|I had reused code for the search and on testing realised I was still directing back to the home page. When I corrected this code I realised that as the length of blogs > 0 if you search for a term that exists in another users blog no blogs appear but the No results found message doesn’t appear. I worked out a solution from reading [this](https://www.w3schools.com/python/python_mongodb_query.asp) and [this](https://blog.enterprisedna.co/python-filter-list-5-practical-methods-explained/#:~:text=You%20can%20filter%20object%20by,each%20element%20in%20the%20iterable.) within the search function for the profile I first queried the database creating a list of all the blogs containing the search parameters then filtered that list to just items where the user equal to the username.|
 |On the deployed site when a non admin attempted to log out, a session cookie for admin was not found and threw and error.|I found a solution [here](https://www.techwithtim.net/tutorials/flask/sessions). Which instructs what to do if the key in this case admin doesn’t exist. Which solved the problem.|
-
+|When testing with iOS 13 I noticed that there was an issue with selecting the category on the form, I couldn't figure out why but I found [this](https://stackoverflow.com/questions/60307437/materializecss-select-native-for-ios-android) and [this](https://github.com/Dogfalo/materialize/issues/6464) online which references an issue with materialize and iOS, I attempted the workaround suggested with browser-default class but it caused an issue on desktop.||
 
 
 [Return to README](README.md)
