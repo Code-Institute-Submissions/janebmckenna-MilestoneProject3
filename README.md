@@ -216,8 +216,9 @@ Once I had MVP complete I decided to add the additional functionality of comment
 ## UX-skeleton
 
 **Design Choices**
-
-
+ 
+Minimal use of images with the exception of the logo ensures a clean and uncluttered layout. The logo is strategically placed to establish brand identity and is the primary visual element.
+The design is centered around a cohesive blue palette, creating a calm appearance. Shades and gradients of blue are strategically used for different elements to maintain visual hierarchy and consistency with pops of teal for key flash messages to the user. The focus is on essential content and functionality, promoting a straight forward user experience. Squared edges give a structured and organized appearance to the elements on the screen. The use of straight lines and right angles reinforces a modern and geometric design approach.
 
 **Wireframes**
 
@@ -227,12 +228,15 @@ Once I had MVP complete I decided to add the additional functionality of comment
 
 **Colour Palette**
 
+I knew I wanted to use blue as my primary colour for the site, I used [mycolor.space](https://mycolor.space/) to create the graient and decide on the colour teal to use for my standout content. I then used the materialize documentation to use class references for colours when appropriate. 
 
 **Fonts**
 
+I used [Google Fonts](https://fonts.google.com/) to choose Oswald font for its square and modern appearance. 
 
 
 **Responsiveness**
+
 I will rely upon a combination of materialize and media queries to ensure the app was was visually appealing and well laid out on all screens. 
 
 
@@ -262,7 +266,7 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 **Content**
 
 - [Materialise Version 1.0.0](https://materializecss.com/about.html)
-- I used [mycolor.space](https://mycolor.space/) to decide on the colour scheme of the site.
+- I used [mycolor.space](https://mycolor.space/) to decide on the colour scheme of the site and create the gradient of the background.
 - Icons were sourced from [Font Awesome](https://fontawesome.com)
 - My fonts were taken from [Google Fonts](https://fonts.google.com/)
 - Wireframes were created using [Balsamiq](https://balsamiq.com/)
