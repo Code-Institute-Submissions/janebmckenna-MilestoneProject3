@@ -20,7 +20,7 @@
 |Delete/Edit buttons visible to owner user|
 |Forms won't submit without appropriate information| Yes | Yes|Yes|Yes|Yes|Yes|Yes|
 |User Flash messages appear|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Choose category from drop down list on blog form|No||Yes|Yes|Yes|Yes|Yes|
+|Choose category from drop down list on blog form|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
 |**Additional Devices Tested Using Chrome Developer Tools**|**Responsive Observations**
 |-----|-----|

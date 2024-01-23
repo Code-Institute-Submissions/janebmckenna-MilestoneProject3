@@ -4,7 +4,6 @@ from flask import (
     Flask, flash, render_template, 
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from flask_mail import Mail, Message
 from bson.objectid import ObjectId
 from datetime import date
 from time import time
@@ -21,14 +20,7 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER')
-app.config['MAIL_PORT'] = os.environ.get('MAIL_PORT')
-app.config['MAIL_USE_SSL'] = os.environ.get('MAIL_USE_SSL')
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-
 mongo = PyMongo(app)
-mail = Mail(app)
 
 
 @app.route("/")
@@ -278,66 +270,6 @@ def delete_category(category_id):
     mongo.db.categories.delete_one({"_id": ObjectId(category_id)})
     flash("Category succesfully deleted")
     return redirect(url_for("categories"))
-  
-
-@app.route("/reset_request", methods=["GET", "POST"])
-def reset_request():
-    if request.method == "POST":
-        # check if email exists
-        existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
-        flash('''
-        Check your email, 
-        if your email matches an account in our database 
-        you will recieve a reset link''')
-        if existing_user:
-            send_mail(existing_user)
-        else:
-            pass
-        return redirect(url_for('login'))
-    return render_template("reset_request.html")
-
-
-def get_reset_token(self, expires):
-    return jwt.encode({'reset_password': self["email"], 
-            'exp': time()+ expires}, key=os.getenv('SECRET_KEY'), algorithm='HS256')
-
-
-# Sends reset mail to user
-def send_mail(user):
-    token = get_reset_token(user, 1000)
-
-    msg = Message()
-    msg.subject = "Life in Blog - Password Reset"
-    msg.sender = "noreply@lifeinblog.com"
-    msg.recipients = user
-    msg.html = render_template('reset_email.html', user=user, token=token)
-
-    mail.send(msg)
-
-
-# checks the token from the password reset link
-def verify_reset_token(token):
-        try:
-            email = jwt.decode(token,
-            key=os.getenv('SECRET_KEY'), algorithms=['HS256'])['reset_password']
-            return email
-        except Exception as e:
-            print(e)
-            return
-
-
-@app.route('/reset_password/<token>', methods=['GET', 'POST'])
-def reset_password(token):
-    if verify_token(token):
-        print(token)
-        return redirect(url_for('new_password'))
-
-
-@app.route('/new_password/<user_id>', methods=['GET', 'POST'])
-def new_password(user):
-    pass
-
 
 
 # NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting

@@ -175,7 +175,12 @@ Allow users to contact site admin to suggest improvements or with issues.
 - **Ability to celebrate Blogs** 
 Allow users to celebrate or acknowledge their appreciation of a blog without commenting. 
 - **Reset password function**
-Allow users to reset their passwords and be reminded of their user name via email. 
+Allow users to reset their passwords and be reminded of their username via email. 
+
+I took steps to include this within this project as a learning oportunity for myself but ultimately decided it wasn't nessicary for MVP. I encountered a security issue with logging into my gmail which I solved by creating an app specific password. From speaking with my mentor I decided to focus polishing the remainder of the project instead of continuing to solve the password reset which I understand I will learn as part of the next section of the course. 
+
+- **Soft Delete Blogs**
+To allow me to see number of blogs created and deleted, I could impliment a soft delete using a active flag within the DB. 
 
 ## UX-structure
 
