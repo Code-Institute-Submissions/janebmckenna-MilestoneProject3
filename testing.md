@@ -92,6 +92,7 @@ On final Lighthouse audits green results were returned on all pages.
 ## Validator Audit
 
 [W3C HTML validator](https://validator.w3.org/)
+
 ![validator](static/Images/testing/w3-html-validator.png)
 
 All Blogs(Home), Login, Register, New Blog, Comments pages pass through with no issues. 
@@ -99,8 +100,17 @@ Currently unnable to check profile and manage categories due to session cookies 
 
 [CSS validator Jigsaw](https://jigsaw.w3.org/css-validator/)
 
+![CSS validator](static/Images/testing/css-validator.png)
+
+No errors found.
+
 [JSHint](jshint.com)
 
+Didnt return any errors but showed that $ was undefined, I was not concerned as it related to jQuery. 
+
+[jsfiddle](https://jsfiddle.net/)
+
+As this could be configured to include jQuery I also passed my js through without any issues. 
 
 ## Bugs
 
