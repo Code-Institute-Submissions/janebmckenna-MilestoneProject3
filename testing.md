@@ -83,8 +83,24 @@
 |Delete comments from all users|As an admin user I can delete comments from any user|![admin comments](static/Images/comment-added.png)|
 
 ## Lighthouse Audit
+![Lighthouse Audit](static/Images/testing/lighthouse-audit.png)
+
+When I initally ran the lighthouse audit on some of the pages I had some accessibility issues, I added some aria labels and a hidden label for the category drop down. I also had to add in a meta desrciption tage into the head fro SEO. 
+
+On final Lighthouse audits green results were returned on all pages. 
 
 ## Validator Audit
+
+[W3C HTML validator](https://validator.w3.org/)
+![validator](static/Images/testing/w3-html-validator.png)
+
+All Blogs(Home), Login, Register, New Blog, Comments pages pass through with no issues. 
+Currently unnable to check profile and manage categories due to session cookies requirement. I have checked both by direct input and the errors returned relate to jinga templating language. 
+
+[CSS validator Jigsaw](https://jigsaw.w3.org/css-validator/)
+
+[JSHint](jshint.com)
+
 
 ## Bugs
 

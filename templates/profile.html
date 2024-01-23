@@ -30,7 +30,7 @@
                 <li>
                     <div class="collapsible-header blue lighten-5 indigo-text text-darken-4">
                         <i class="fas fa-caret-down"></i>
-                        <a href="#delete-modal4{{ blog._id }}" class="btn-small red accent-4 modal-trigger blog-btn" >Delete</a></a>
+                        <a href="#delete-modal4{{ blog._id }}" class="btn-small red accent-4 modal-trigger blog-btn" >Delete</a>
                         <a href="{{ url_for('edit', blog_id= blog._id)}}" class="btn-small light-blue lighten-1 editbtn blog-btn">Edit</a>
                         <!-- Modal Confirm Delete -->
                         <div id="delete-modal4{{ blog._id }}" class="modal">
@@ -59,7 +59,7 @@
                             <span>Date Posted:</span> {{ blog.date }}<br>
                             <span>Posted By:</span> {{ blog.user}}
                         </p>
-                        <p align="right">
+                        <p class="comments">
                             <a href="{{ url_for('comments', blog_id=blog._id)}}" class="btn-small teal accent-2 commentbtn"><i class="fa-solid fa-eye prefix"></i> Comments</a>
                         </p>
                     </div>

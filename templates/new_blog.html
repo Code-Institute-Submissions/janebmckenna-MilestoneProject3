@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="input-field col s12 m8 offset-m2">
                     <i class="fa-solid fa-icons prefix"></i>
+                    <label for="category_name" class="hidden">Blog Category</label>
                     <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose your category</option>
                         {% for category in categories %}
                             <option value="{{category.category_name}}">{{category.category_name}}</option>
                         {% endfor %}
                     </select>
-                    <label for="category_name">Blog Category</label>
                 </div>
             </div>
             <!-- blog title -->

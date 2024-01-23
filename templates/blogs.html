@@ -63,7 +63,7 @@
                         <span>Posted By:</span> {{ blog.user}}
                     </p>
                     <!-- comment button -->
-                    <p align="right">
+                    <p class="comments">
                         <a href="{{ url_for('comments', blog_id=blog._id)}}" class="btn-small teal accent-2 commentbtn"><i class="fa-solid fa-eye prefix"></i> Comments</a>
                     </p>
                 </div>

@@ -277,6 +277,7 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 - I learned how to delete an object from an array in MongoDB in the documentation [here](https://www.mongodb.com/docs/manual/reference/operator/update/pull/#:~:text=If%20the%20specified%20to,exact%20same%20fields%20and%20values.)
 - While developing this project I referred back to code I had written during the task manager mini project.
 - After reading this materialise [tread](https://github.com/Dogfalo/materialize/issues/6464), I added the select.js file to my project from the materialize repo which solved the bug on iOS 13.
+- I reused some CSS code I wrote for Milestone Project two to hide a label, helping with the accessibility. .hidden{ border-width: 0; clip: rect(1px, 1px, 1px, 1px); height: 1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
 
 
 **Advice**

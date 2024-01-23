@@ -8,7 +8,7 @@
   <meta name="description" content="Life in Blog, a place to write and read lifes ups and downs, or find your next TV series to binge watch">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     type="text/css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,27 +47,29 @@
     </div>
   </nav>
   <!-- Collapsible nav for small screen -->
-  <ul class="sidenav" id="mobile-demo">
-    <li>
-      <h5 class="center-align indigo-text darken-4-text">Life in Blog</h5>
-    </li>
-    <li><a href="{{ url_for('blog_posts')}}">Home</a></li>
-    <!-- Links for logged in Users -->
-    {% if session.user %}
-      <li><a href="{{ url_for('profile', username=session['user'])}}">My Profile</a></li>
-      <li><a href="{{ url_for('new_blog')}}">New Post</a></li>
-      <!-- Link for admin user -->
-      {% if session.admin|lower == "yes"|lower %}
-        <li><a href="{{ url_for('categories')}}">Manage Categories</a></li>
+  <div>
+    <ul class="sidenav" id="mobile-demo">
+      <li>
+        <h5 class="center-align indigo-text darken-4-text">Life in Blog</h5>
+      </li>
+      <li><a href="{{ url_for('blog_posts')}}">Home</a></li>
+      <!-- Links for logged in Users -->
+      {% if session.user %}
+        <li><a href="{{ url_for('profile', username=session['user'])}}">My Profile</a></li>
+        <li><a href="{{ url_for('new_blog')}}">New Post</a></li>
+        <!-- Link for admin user -->
+        {% if session.admin|lower == "yes"|lower %}
+          <li><a href="{{ url_for('categories')}}">Manage Categories</a></li>
+        {% endif %}
+        <li><a href="#modal1" class="modal-trigger">Log Out</a></li>
+      <!-- Links for users who are not logged in  -->
+      {% else %}
+        <li><a href="{{ url_for('login')}}">Log In</a></li>
+        <li><a href="{{ url_for('register')}}">Register</a></li>
       {% endif %}
-      <li><a href="#modal1" class="modal-trigger">Log Out</a></li>
-    <!-- Links for users who are not logged in  -->
-    {% else %}
-      <li><a href="{{ url_for('login')}}">Log In</a></li>
-      <li><a href="{{ url_for('register')}}">Register</a></li>
-    {% endif %}
-  </ul>
-  <section>
+    </ul>
+  </div>
+  <div>
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -78,7 +80,7 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
-  </section>
+  </div>
   <main class="container">
     {% block content %}
     {% endblock %}
@@ -102,7 +104,6 @@
             © 2023 Copyright Jane McKenna
             <a class="white-text right github" href="https://github.com/janebmckenna" target="_blank" aria-label="View GitHub profile"><i class="footer-logo fa-brands fa-github"></i></a>
           </div>
-          <div class="white-text">
         </div>
       </div>
     </div>
