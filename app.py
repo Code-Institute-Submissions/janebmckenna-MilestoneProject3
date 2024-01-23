@@ -272,7 +272,6 @@ def delete_category(category_id):
     return redirect(url_for("categories"))
 
 
-# NOTE TO SELF: UPDATE TO DEBUG=False prior to submitting
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
         port =int(os.environ.get("PORT")),

@@ -14,8 +14,8 @@
             </div>
             <div class="row valign-wrapper right-align">
                 <div class="col s12 m4">
-                    <a href="{{ url_for('blog_posts') }}" class="red btn">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn">
+                    <a href="{{ url_for('blog_posts') }}" class="red btn blog-btn">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn blog-btn">
                         <i class="fas fa-search left"></i>Search
                     </button>
                 </div>
@@ -27,11 +27,11 @@
         <ul class="collapsible popout">
         {% for blog in blogs %}
             <li>
-                <div class="collapsible-header blue lighten-5 indigo-text text-darken-4">
+                <div class="collapsible-header blue lighten-5 indigo-text text-darken-4 blog-section">
                     <i class="fas fa-caret-down"></i>
                     <!-- Edit/Delete buttons if user is the owner of the post -->
                     {% if (session.user|lower == blog.user|lower) or (session.admin|lower == "yes"|lower) %}
-                        <a href="#delete-modal{{ blog._id }}" class="btn-small red accent-4 modal-trigger" >Delete</a>
+                        <a href="#delete-modal{{ blog._id }}" class="btn-small red accent-4 modal-trigger blog-btn" >Delete</a>
                         </a>
                         <a href="{{ url_for('edit', blog_id= blog._id)}}" class="btn-small light-blue lighten-1 editbtn">Edit</a>
                             <!-- Modal Confirm Delete -->
