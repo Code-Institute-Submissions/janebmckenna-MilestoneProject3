@@ -44,7 +44,8 @@ def search_profile(username):
     blogs = list(item for item in all_blogs if item["user"] == username)
     username =mongo.db.users.find_one(
     {"username": session["user"]})["username"]
-    return render_template("profile.html", blogs=blogs, username=username)
+    return render_template(
+        "profile.html", blogs=blogs, username=username)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -74,7 +75,8 @@ def register():
             register = {
                 "email": request.form.get("email").lower(),
                 "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get("password")),
+                "password": generate_password_hash(
+                    request.form.get("password")),
                 "is_admin": "No"
             }
             mongo.db.users.insert_one(register)
@@ -82,7 +84,8 @@ def register():
             # put the new user into 'session' cookie
             session['user'] = request.form.get("username").lower()
             flash("Registration successful!")
-            return redirect(url_for("profile", username=session["user"]))
+            return redirect(url_for(
+                "profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -162,8 +165,10 @@ def new_blog():
         flash("Thank you, blog successfully added")
         return redirect(url_for("blog_posts"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("new_blog.html", categories = categories)
+    categories = mongo.db.categories.find().sort(
+        "category_name", 1)
+    return render_template(
+        "new_blog.html", categories = categories)
 
 
 @app.route("/edit/<blog_id>", methods=["GET", "POST"])
@@ -179,13 +184,15 @@ def edit(blog_id):
             "user": session["user"],
             "updated": "yes"
         }
-        mongo.db.blogs.update_one({"_id": ObjectId(blog_id)}, {"$set": submit})
+        mongo.db.blogs.update_one(
+            {"_id": ObjectId(blog_id)}, {"$set": submit})
         flash("Thank you, blog successfully updated")
         return redirect(url_for("blog_posts"))
 
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit.html", blog=blog, categories = categories)
+    return render_template(
+        "edit.html", blog=blog, categories = categories)
 
 
 @app.route("/comments/<blog_id>", methods=["GET", "POST"])
