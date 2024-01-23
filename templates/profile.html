@@ -14,7 +14,7 @@
             </div>
             <div class="row valign-wrapper right-align">
                 <div class="col s12">
-                    <a href="{{ url_for('profile', username=session['user'])}}" class="red btn blog-btn"></a>
+                    <a href="{{ url_for('profile', username=session['user'])}}" class="red btn blog-btn"><i class="fas fa-broom left"></i> Reset</a>
                     <button type="submit" class="light-blue darken-1 btn blog-btn">
                         <i class="fas fa-search left"></i>Search
                     </button>
@@ -30,12 +30,12 @@
                 <li>
                     <div class="collapsible-header blue lighten-5 indigo-text text-darken-4">
                         <i class="fas fa-caret-down"></i>
-                        <a href="#delete-modal{{ blog._id }}" class="btn-small red accent-4 modal-trigger blog-btn" >Delete</a></a>
+                        <a href="#delete-modal4{{ blog._id }}" class="btn-small red accent-4 modal-trigger blog-btn" >Delete</a></a>
                         <a href="{{ url_for('edit', blog_id= blog._id)}}" class="btn-small light-blue lighten-1 editbtn blog-btn">Edit</a>
                         <br class="hide-on-med-and-up">
                         <h6 class="indigo-text text-darken-4 blog-title"><strong>{{blog.category_name}}:  </strong> {{+ blog.title }} </h6>
                         <!-- Modal Confirm Delete -->
-                        <div id="delete-modal{{ blog._id }}" class="modal">
+                        <div id="delete-modal4{{ blog._id }}" class="modal">
                             <div class="modal-content">
                                 <h4 class="black-text">Delete Blog</h4>
                                 <p class="black-text">Are you sure you want to delete this blog?</p>
