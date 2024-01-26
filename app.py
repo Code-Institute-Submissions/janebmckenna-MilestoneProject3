@@ -87,7 +87,9 @@ def register():
             return redirect(url_for(
                 "profile", username=session["user"]))
 
-    flash("Passwords did not match")
+        else :
+            flash("Passwords did not match")
+
     return render_template("register.html")
 
 
@@ -229,7 +231,7 @@ def delete(blog_id):
 def delete_comment(comment, blog_id):
     mongo.db.blogs.update_one(
         {"_id": ObjectId(blog_id)}, {"$pull":{"comments":  comment}})
-    flash("Comment succesfully deleted")
+    flash("Comment successfully  deleted")
     comments = mongo.db.blogs.comments.find()
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     return render_template(

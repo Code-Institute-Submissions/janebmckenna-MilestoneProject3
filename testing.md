@@ -55,14 +55,36 @@
 |Search Function - Homepage|Type search word click Submit|Returns appropriate Blogs or No results found|Pass|
 |Reset Button - homepage|Click reset button|Clears the search bar and reloads all blogs|Pass|
 |Accordion - Homepage |click on blog|expands one blog at a time|Pass|
-|Comments Button|Click on comments button|Opens corresponding blog comments page|Pass|
+|Home Page - Comments Button (Logged in)|Click on comments button|Opens corresponding blog comments page with form to comment visable|Pass|
+|Home Page - Comments Button (Logged out)|Click on comments button|Opens corresponding blog comments page with 'Login to join the conversation text'|Pass|
 |Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
 |Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Footer|Click Github logo|Opens Jane McKennas github in a new window|Pass|
 |Register Page|Click Register without providing Email details |Pop up: Please Fill in this Field |Pass|
 |Register Page|Click Register without providing Username greater than 5 characters|Pop up: Please Fill in this Field or Please lengthen this text to 5 characters or more |Pass|
 |Register Page|Click Register with non email text in email field|Pop up: Please include an '@' in the email address |Pass|
-
+|Register Page|Type passwords that do not match|Red text under password confirm that indicates passwords dont match |Pass|
+|Register Page|Type passwords that match|Green text under password confirm that indicates passwords match |Pass|
+|Register Page|Click Register when passwords do not match|Flash passwords did not match|Pass|
+|Register Page|Click Register email that exisits in DB|Flash email already exists |Pass|
+|Register Page|Click Register username already in DB|Flash username already exists|Pass|
+|Register Page|Type passwords with special characters|Pop up: Please match the format requested |Pass|
+|Register Page|Click on Login link|Redirect to login page|Pass|
+|Login Page|Login within user name that does not exist|Flash incorrect username and/or password|Pass|
+|Login Page|Login within incorrect password|Flash incorrect username and/or password|Pass|
+|Login Page|Login with correct username and password|Redirect to profile page of user with welcome message|Pass|
+|Login Page|Click on register link|Redirect to Register page|Pass|
+|Profile Page|Search term that exists in my blogs - Press Enter|Blogs containing term are returned|Pass|
+|Profile Page|Search term that exists in my blogs - Click Search button|Blogs containing term are returned|Pass|
+|Profile Page|Search term that exists other users blogs but not mine - Press Enter|No results found returned|Pass|
+|Profile Page|Search term that exists other users blogs but not mine - Click Search button|No results found returned|Pass|
+|Profile Page|Search term that does not exist in any blogs - Press Enter|No results found returned|Pass|
+|Profile Page|Search term that does not exist in any blogs - Click Search Button|No results found returned|Pass|
+|Profile Page|Click Reset button|All of my blogs are displayed|Pass|
+|Profile Page - Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
+|Profile Page - Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
+|Profile Page - Comments Button|Click on comments button|Opens corresponding blog comments page|Pass|
+|Comment Page| Click add comment with typing comment||Pass|
 
 
 
