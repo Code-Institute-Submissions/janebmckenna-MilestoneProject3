@@ -120,7 +120,6 @@ def login():
                 if key == "is_admin":
                     admin = val
                     session["admin"] = admin
-                    print(admin)
 
             # ensure passwords match
             if check_password_hash(
