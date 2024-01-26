@@ -98,7 +98,6 @@ def profile(username):
     myquery = { "user": username }
     blogs = list(mongo.db.blogs.find(myquery))
 
-
     if session["user"]:
         return render_template(
             "profile.html", username=username, blogs=blogs)
@@ -191,8 +190,13 @@ def edit(blog_id):
 
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template(
-        "edit.html", blog=blog, categories = categories)
+    if 'user' in session:
+        return render_template(
+            "edit.html", blog=blog, categories = categories)
+    else:
+        flash(
+            "Sorry, you don't appear to be logged in, please login to continue")
+        return redirect(url_for("login"))
 
 
 @app.route("/comments/<blog_id>", methods=["GET", "POST"])
@@ -253,7 +257,12 @@ def new_category():
         flash("New Category Added")
         return redirect(url_for("categories"))
 
-    return render_template("new_category.html")
+    if 'admin' in session:
+        return render_template("new_category.html")
+    else:
+        flash(
+            "Sorry, you don't appear to be logged in, please login to continue")
+        return redirect(url_for("login"))
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
@@ -269,7 +278,13 @@ def edit_category(category_id):
 
     category = mongo.db.categories.find_one(
         {"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+    if 'admin' in session:
+        return render_template("edit_category.html", category=category)
+    else:
+        flash(
+            "Sorry, you don't appear to be logged in, please login to continue")
+        return redirect(url_for("login"))
+    
 
 
 @app.route("/delete_category/<category_id>")
