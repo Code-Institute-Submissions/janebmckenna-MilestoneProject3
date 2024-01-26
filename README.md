@@ -226,6 +226,9 @@ I stored all my environment variables within an env.py file which was included i
 
 **Future Security Improvements**
 
+-**Password Reset**
+A future improvement I would look to impliment would be the ability to reset your password. At the same time I would move login to be based on email and update new passwords and newly registered passwords to require numbers and special characters. 
+
 ## UX-skeleton
 
 **Design Choices**
