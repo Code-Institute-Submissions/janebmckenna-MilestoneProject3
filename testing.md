@@ -42,6 +42,8 @@
 |Nav Bar|Click Login|Navigates to login page|Pass|
 |Nav Bar|Click My Profile|Navigates to profile page|Pass|
 |Nav Bar|Click Logout|Asks user to confirm logout|Pass|
+|Confirm Logout|Click Logout |Flash: 'You have been logged out' and returned to Login Page|Pass|
+|Confirm Delete|Click Cancel|Returned to previous Page|Pass|
 |Nav Bar|Click New Blog|Navigates to new blog page|Pass|
 |Nav Bar|Click Manage categories|Navigates to manage categories page|Pass|
 |Nav Bar - Mobile|Click hamburger icon|Expands Navigation on right side of screen|Pass|
@@ -58,6 +60,8 @@
 |Home Page - Comments Button (Logged in)|Click on comments button|Opens corresponding blog comments page with form to comment visable|Pass|
 |Home Page - Comments Button (Logged out)|Click on comments button|Opens corresponding blog comments page with 'Login to join the conversation text'|Pass|
 |Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
+|Confirm Delete|Click Delete|Flash Blog successfully Deleted|Pass|
+|Confirm Delete|Click Cancel|Returned to Previous Page|Pass|
 |Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Footer|Click Github logo|Opens Jane McKennas github in a new window|Pass|
 |Register Page|Click Register without providing Email details |Pop up: Please Fill in this Field |Pass|
@@ -82,12 +86,35 @@
 |Profile Page|Search term that does not exist in any blogs - Click Search Button|No results found returned|Pass|
 |Profile Page|Click Reset button|All of my blogs are displayed|Pass|
 |Profile Page - Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
+|Confirm Delete|Click Delete|Flash Blog successfully Deleted|Pass|
+|Confirm Delete|Click Cancel|Returned to Previous Page|Pass|
 |Profile Page - Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Profile Page - Comments Button|Click on comments button|Opens corresponding blog comments page|Pass|
+|Profile Page|Click accordian on Blog|Blog content opens to read|Pass|
 |Comment Page| Click add comment with typing comment|Pop up:Please fill in this field|Pass|
 |Comment Page| Click add comment with comment less than 10 characters|Pop up:Please lengthen this text to 10 characters or more|Pass|
 |Comment Page| Click add comment with valid comment > 10 characters|Comment is added to the comments section and Thank you flash message appears|Pass|
-|Comment Page| Click Delete button|Corresponding comment is deleted|Pass|
+|Comment Page| Blog owner or admin users|Delete (comment) button is visable|Pass|
+|Comment Page| Click Delete button|User asked to confirm deletion|Pass|
+|Confirm Delete|Click Delete|Flash Comment successfully Deleted + corresponding comment is deleted|Pass|
+|Confirm Delete|Click Cancel|Returned to Previous Page|Pass|
+|New Post|Click Choose Category|Categories appear in drop down|Pass|
+|New Post|Fail to choose Category click Add Blog|Pop up: Please select an item from the list|Pass|
+|New Post|click Add Blog - no Blog title|Pop up: Please fill in this field|Pass|
+|New Post|click Add Blog - no Blog content|Pop up: Please fill in this field|Pass|
+|New Post|Click Add Blog - all fields complete|Flash: Thank you Blog added succesfully|Pass|
+|Manage Categories|Click Add Category|Redirected to Add Category|Pass|
+|Add Category|Click Add Category - blank field|Pop up: Please fill in this field|Pass|
+|Add Category|Click Add Category - completed field|Flash New Category Added and Category appears on the Category list|Pass|
+|Add Category|Click Cancel |Returned to the Manage Categories Page|Pass|
+|Manage Categories|Click Delete|User asked to Confirm Deletion|Pass|
+|Confirm Delete|Click Delete|Flash Category Deleted and removed from category list|Pass|
+|Confirm Delete|Click Cancel|Returned to the Manage Categories Page|Pass|
+|Manage Categories|Click Edit|Edit category opens with Current category name pre populated|Pass|
+|Manage Categories|Click Cancel|Returned to the Manage Categories Page|Pass|
+|Manage Categories|Click Update Category|Flash Category Updated and updated on category list|Pass|
+
+
 
 
 
