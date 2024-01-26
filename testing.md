@@ -171,6 +171,10 @@ As this could be configured to include jQuery I also passed my js through withou
 
 [CI Python Linter](https://pep8ci.herokuapp.com/)
 
+![linter image](static/Images/testing/CI-python-linter.png)
+
+There were initally some whitespace issues when I passed my python code through the linter to check pep8 compliance. 
+On lines 127 and 128 I had some indentation issues that I couldn't figure out without breaking my code. I found the solution within the [pep8 documentation on continuation lines](https://peps.python.org/pep-0008/) 
 
 ## Bugs
 
