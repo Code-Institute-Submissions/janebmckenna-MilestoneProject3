@@ -84,7 +84,10 @@
 |Profile Page - Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
 |Profile Page - Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Profile Page - Comments Button|Click on comments button|Opens corresponding blog comments page|Pass|
-|Comment Page| Click add comment with typing comment||Pass|
+|Comment Page| Click add comment with typing comment|Pop up:Please fill in this field|Pass|
+|Comment Page| Click add comment with comment less than 10 characters|Pop up:Please lengthen this text to 10 characters or more|Pass|
+|Comment Page| Click add comment with valid comment > 10 characters|Comment is added to the comments section and Thank you flash message appears|Pass|
+|Comment Page| Click Delete button|Corresponding comment is deleted|Pass|
 
 
 
