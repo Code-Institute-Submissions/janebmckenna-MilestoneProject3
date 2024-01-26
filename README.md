@@ -196,7 +196,7 @@ Is consitantly displayed at the top of every page to allow users a quick return 
 
 **Navigation**
 
-I have decoded to use a traditional navigation bar with links displaying to the relevant users.
+I have decided to use a traditional navigation bar with links displaying to the relevant users.
 Not logged in users will see - Home, Login and Register
 Logged in users will see - Home, Logout, New Blog, Profile
 Admin users will see - Home, Logout, New Blog, Profile and manage categories. 

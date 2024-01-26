@@ -55,9 +55,14 @@
 |Search Function - Homepage|Type search word click Submit|Returns appropriate Blogs or No results found|Pass|
 |Reset Button - homepage|Click reset button|Clears the search bar and reloads all blogs|Pass|
 |Accordion - Homepage |click on blog|expands one blog at a time|Pass|
+|Comments Button|Click on comments button|Opens corresponding blog comments page|Pass|
 |Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
 |Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Footer|Click Github logo|Opens Jane McKennas github in a new window|Pass|
+|Register Page|Click Register without providing Email details |Pop up: Please Fill in this Field |Pass|
+|Register Page|Click Register without providing Username greater than 5 characters|Pop up: Please Fill in this Field or Please lengthen this text to 5 characters or more |Pass|
+|Register Page|Click Register with non email text in email field|Pop up: Please include an '@' in the email address |Pass|
+
 
 
 
