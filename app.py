@@ -190,6 +190,7 @@ def edit(blog_id):
 
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
+    # defensive redirect if there isnt a user session cookie
     if 'user' in session:
         return render_template(
             "edit.html", blog=blog, categories = categories)
@@ -237,7 +238,6 @@ def delete_comment(comment, blog_id):
 @app.route("/categories")
 def categories():
     admin = session["admin"]
-    print(admin)
     if admin == "Yes":
         categories = list(
             mongo.db.categories.find().sort("category_name",1))
@@ -257,6 +257,7 @@ def new_category():
         flash("New Category Added")
         return redirect(url_for("categories"))
 
+    # defensive redirect if there isnt an admin session cookie
     if 'admin' in session:
         return render_template("new_category.html")
     else:
@@ -278,6 +279,7 @@ def edit_category(category_id):
 
     category = mongo.db.categories.find_one(
         {"_id": ObjectId(category_id)})
+    # defensive redirect if there isnt an admin session cookie
     if 'admin' in session:
         return render_template("edit_category.html", category=category)
     else:
@@ -293,8 +295,19 @@ def delete_category(category_id):
     flash("Category succesfully deleted")
     return redirect(url_for("categories"))
 
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(error):
+    return render_template('500.html'), 500
+
+
 # Note to self change debug to false before submitting
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
         port =int(os.environ.get("PORT")),
-        debug=True)
+        debug=False)
