@@ -1,7 +1,7 @@
 import os
 import jwt
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -33,17 +33,17 @@ def blog_posts():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get('query')
-    blogs = list(mongo.db.blogs.find({"$text": {"$search":query}}))
+    blogs = list(mongo.db.blogs.find({"$text": {"$search": query}}))
     return render_template("blogs.html", blogs=blogs)
 
 
 @app.route("/search_profile/<username>", methods=["GET", "POST"])
 def search_profile(username):
     query = request.form.get('query')
-    all_blogs = list(mongo.db.blogs.find({"$text": {"$search":query}}))
+    all_blogs = list(mongo.db.blogs.find({"$text": {"$search": query}}))
     blogs = list(item for item in all_blogs if item["user"] == username)
-    username =mongo.db.users.find_one(
-    {"username": session["user"]})["username"]
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     return render_template(
         "profile.html", blogs=blogs, username=username)
 
@@ -61,7 +61,7 @@ def register():
 
         # check if email already exists
         existing_email = mongo.db.users.find_one(
-        {"email": request.form.get("email").lower()})
+            {"email": request.form.get("email").lower()})
 
         if existing_email:
             flash("Email already in use")
@@ -69,7 +69,7 @@ def register():
 
         password = request.form.get("password")
         confirm = request.form.get("confirm")
-        
+
         # checks to see if the passwords match before registering the user
         if password == confirm:
             register = {
@@ -87,7 +87,7 @@ def register():
             return redirect(url_for(
                 "profile", username=session["user"]))
 
-        else :
+        else:
             flash("Passwords did not match")
 
     return render_template("register.html")
@@ -96,9 +96,9 @@ def register():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session users username from the database
-    username =mongo.db.users.find_one(
-        {"username": session["user"]})["username"] 
-    myquery = { "user": username }
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    myquery = {"user": username}
     blogs = list(mongo.db.blogs.find(myquery))
 
     if session["user"]:
@@ -132,12 +132,12 @@ def login():
                         "profile", username=session["user"]))
             else:
                 # passwords dont match
-                flash ("Incorrect username and/or password")
+                flash("Incorrect username and/or password")
                 return redirect(url_for("login"))
 
         else:
             # username doesnt exist
-            flash ("Incorrect username and/or password")
+            flash("Incorrect username and/or password")
             return redirect(url_for("login"))
     return render_template("login.html")
 
@@ -145,7 +145,7 @@ def login():
 @app.route("/logout")
 def logout():
     # remove user/admin from session cookies
-    flash ("You have been logged out")
+    flash("You have been logged out")
     session.pop('user')
     session.pop('admin', None)
     return redirect(url_for("login"))
@@ -170,7 +170,7 @@ def new_blog():
     categories = mongo.db.categories.find().sort(
         "category_name", 1)
     return render_template(
-        "new_blog.html", categories = categories)
+        "new_blog.html", categories=categories)
 
 
 @app.route("/edit/<blog_id>", methods=["GET", "POST"])
@@ -196,21 +196,23 @@ def edit(blog_id):
     # defensive redirect if there isnt a user session cookie
     if 'user' in session:
         return render_template(
-            "edit.html", blog=blog, categories = categories)
+            "edit.html", blog=blog, categories=categories)
     else:
-        flash(
-            "Sorry, you don't appear to be logged in, please login to continue")
+        flash("""
+            Sorry, you don't appear to be
+            logged in, please login to continue
+            """)
         return redirect(url_for("login"))
 
 
 @app.route("/comments/<blog_id>", methods=["GET", "POST"])
 def comments(blog_id):
     if request.method == "POST":
-        submit= "User " + (
+        submit = "User " + (
             session["user"]) + " commented: " + (
                 request.form.get("comment"))
         mongo.db.blogs.update_one(
-            {"_id": ObjectId(blog_id)}, { "$push":  {"comments": submit} })
+            {"_id": ObjectId(blog_id)}, {"$push": {"comments": submit}})
         flash("Thank you, comment added")
 
     comments = mongo.db.blogs.comments.find()
@@ -230,7 +232,7 @@ def delete(blog_id):
 @app.route("/delete_comment/<comment>/<blog_id>")
 def delete_comment(comment, blog_id):
     mongo.db.blogs.update_one(
-        {"_id": ObjectId(blog_id)}, {"$pull":{"comments":  comment}})
+        {"_id": ObjectId(blog_id)}, {"$pull": {"comments":  comment}})
     flash("Comment successfully  deleted")
     comments = mongo.db.blogs.comments.find()
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
@@ -243,7 +245,7 @@ def categories():
     admin = session["admin"]
     if admin == "Yes":
         categories = list(
-            mongo.db.categories.find().sort("category_name",1))
+            mongo.db.categories.find().sort("category_name", 1))
         return render_template(
             "categories.html", categories=categories)
 
@@ -264,8 +266,10 @@ def new_category():
     if 'admin' in session:
         return render_template("new_category.html")
     else:
-        flash(
-            "Sorry, you don't appear to be logged in, please login to continue")
+        flash("""
+            Sorry, you don't appear to be logged in,
+            please login to continue
+            """)
         return redirect(url_for("login"))
 
 
@@ -286,10 +290,11 @@ def edit_category(category_id):
     if 'admin' in session:
         return render_template("edit_category.html", category=category)
     else:
-        flash(
-            "Sorry, you don't appear to be logged in, please login to continue")
+        flash("""
+            Sorry, you don't appear to be logged in,
+            please login to continue
+            """)
         return redirect(url_for("login"))
-    
 
 
 @app.route("/delete_category/<category_id>")
@@ -311,6 +316,6 @@ def internal_server_error(error):
 
 # Note to self change debug to false before submitting
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"), 
-        port =int(os.environ.get("PORT")),
-        debug=True)
+    app.run(host=os.environ.get("IP"),
+            port=int(os.environ.get("PORT")),
+            debug=True)

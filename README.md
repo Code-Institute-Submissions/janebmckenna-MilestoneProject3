@@ -213,6 +213,19 @@ I decided to use a traditional footer with a link to my github repository.
 
 Once I had MVP complete I decided to add the additional functionality of commenting on blogs. I availed of the flexibility of a non relational DB. storing the comments as an array within the blog object. 
 
+**Security**
+
+-**Authentication and Authorisation** 
+I used werkzeug security features to provide password hashing and to check passwords on login to the hashed passwords stored in the Database. During the login process to aid security flash messages did not confirm what part of the detail was incorrect or if the username existed in the database. 
+
+-**Defensive Redirects**
+To aid security of the site I implimented defensive redirects so that non admins could not access admin pages or functions directly by URL. Similarly logged out users are redirected back to the login page if they attempt to access user pages by URL or other means.
+
+-**Envirionment Variables**
+I stored all my environment variables within an env.py file which was included in my gitignore file and was not push to the repository. 
+
+**Future Security Improvements**
+
 ## UX-skeleton
 
 **Design Choices**
@@ -283,6 +296,10 @@ The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d6
 
 **Advice**
 
-I would like to thank my mentor for his help and support during this project espcially but not limited to challenging me to amend my logic to solve bugs within functions. 
+I would like to thank my mentor Dick for his help and support during this project espcially but not limited to:
+- challenging me to amend my logic to solve bugs within functions. 
+- Utilising the flexibility of the non relational database. 
+
+I would also like to thank my peers from my cohort and my cohort facilator Marko for testing and breaking my code during my testing phase. I would particularly like to thank Marko for pointing out that logged out users could navigate to the edit blog function directly via the URL. 
 
 

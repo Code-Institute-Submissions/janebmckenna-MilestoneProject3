@@ -169,6 +169,9 @@ Didnt return any errors but showed that $ was undefined, I was not concerned as 
 
 As this could be configured to include jQuery I also passed my js through without any issues. 
 
+[CI Python Linter](https://pep8ci.herokuapp.com/)
+
+
 ## Bugs
 
 |**Bug**|**Resolution**|
