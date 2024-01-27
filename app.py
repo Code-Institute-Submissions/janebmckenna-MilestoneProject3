@@ -168,8 +168,15 @@ def new_blog():
 
     categories = mongo.db.categories.find().sort(
         "category_name", 1)
-    return render_template(
+    if 'user' in session:
+        return render_template(
         "new_blog.html", categories=categories)
+    else:
+        flash("""
+            Sorry, you don't appear to be
+            logged in, please login to continue
+            """)
+        return redirect(url_for("login"))
 
 
 @app.route("/edit/<blog_id>", methods=["GET", "POST"])
