@@ -2,7 +2,7 @@
 [View live project Here](https://life-in-blog-cd65fb4d61a0.herokuapp.com/)
 ***
 
-Life in Blog is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog for others may help to avoid a pitfall in the road. A great TV series recomendation may fuel a weekend binge watch. Life in Blog allows users to write about all of lifes experiences, ups and downs, find inspiration for their next move.  
+Life in Blog is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog for others may help to avoid a pitfall in the road. A great TV series recommendation may fuel a weekend binge watch. Life in Blog allows users to write about all of life’s experiences, ups and downs, find inspiration for their next move.  
 
 ![Mock Up](static/Images/mockup.png)
 
@@ -171,9 +171,9 @@ CRUD - categories, all blogs and all comments.
 
 _404/500 Error Pages:_
 
-- A 404 error page will display if a user tries to naviagte to a page that doesn't exist. 
+- A 404 error page will display if a user tries to navigate to a page that doesn't exist. 
 - A 500 error page will display if there is an internal server error.
-- Both error pages contain the familar navigation but will also redirect back to the homepage after 5 seconds. 
+- Both error pages contain the familiar navigation but will also redirect back to the homepage after 5 seconds. 
 
 **Future Improvements**
 - **Contact page**
@@ -183,22 +183,22 @@ Allow users to celebrate or acknowledge their appreciation of a blog without com
 - **Reset password function**
 Allow users to reset their passwords and be reminded of their username via email. 
 
-I took steps to include this within this project as a learning oportunity for myself but ultimately decided it wasn't nessicary for MVP. I encountered a security issue with logging into my gmail which I solved by creating an app specific password. From speaking with my mentor I decided to focus polishing the remainder of the project instead of continuing to solve the password reset which I understand I will learn as part of the next section of the course. 
+I took steps to include this within this project as a learning opportunity for myself but ultimately decided it wasn't necessary for MVP. I encountered a security issue with logging into my gmail which I solved by creating an app specific password. From speaking with my mentor I decided to focus polishing the remainder of the project instead of continuing to solve the password reset which I understand I will learn as part of the next section of the course. 
 
 - **Soft Delete Blogs**
-To allow me to see number of blogs created and deleted, I could impliment a soft delete using a active flag within the DB. 
+To allow me to see number of blogs created and deleted, I could implement a soft delete using a active flag within the DB. 
 
 ## UX-structure
 
 - All functions are displayed to the relevant users dependant on login/admin status. 
 - Submit buttons are provided at all points of creation, ie registration, new blog, new comment, new category, editing a blog. 
 - Cancel and reset buttons are provided where appropriate to avoid the need to use browser controls. 
-- Pop out accordiation is used to read blog content. 
+- Pop out accordion is used to read blog content. 
 - To see comments users can click on the accompanying comment button on each blog. 
 
 **Logo**
 
-Is consitantly displayed at the top of every page to allow users a quick return to the homepage. 
+Is constantly displayed at the top of every page to allow users a quick return to the homepage. 
 
 **Navigation**
 
@@ -250,7 +250,7 @@ Managed by the admin users (who are set to 'yes' on is_admin within their user o
 
 - **Users**
 
-This collection stores the users username and their hashed password, it also stores their email for future developments and assigns admin privilages. 
+This collection stores the users username and their hashed password, it also stores their email for future developments and assigns admin privileges. 
 
 | Key | Type |Notes|
 | --- | --- |---|
@@ -269,22 +269,22 @@ Once I had MVP complete I decided to add the additional functionality of comment
 I used werkzeug security features to provide password hashing and to check passwords on login to the hashed passwords stored in the Database. During the login process to aid security flash messages did not confirm what part of the detail was incorrect or if the username existed in the database. 
 
 -**Defensive Redirects**
-To aid security of the site I implimented defensive redirects so that non admins could not access admin pages or functions directly by URL. Similarly logged out users are redirected back to the login page if they attempt to access user pages by URL or other means.
+To aid security of the site I implemented defensive redirects so that non admins could not access admin pages or functions directly by URL. Similarly logged out users are redirected back to the login page if they attempt to access user pages by URL or other means.
 
--**Envirionment Variables**
+-**Environment Variables**
 I stored all my environment variables within an env.py file which was included in my gitignore file and was not push to the repository. 
 
 **Future Security Improvements**
 
 -**Password Reset**
-A future improvement I would look to impliment would be the ability to reset your password. At the same time I would move login to be based on email and update new passwords and newly registered passwords to require numbers and special characters. 
+A future improvement I would look to implement would be the ability to reset your password. At the same time I would move login to be based on email and update new passwords and newly registered passwords to require numbers and special characters. 
 
 ## UX-skeleton
 
 **Design Choices**
  
 Minimal use of images with the exception of the logo ensures a clean and uncluttered layout. The logo is strategically placed to establish brand identity and is the primary visual element.
-The design is centered around a cohesive blue palette, creating a calm appearance. Shades and gradients of blue are strategically used for different elements to maintain visual hierarchy and consistency with pops of teal for key flash messages to the user. The focus is on essential content and functionality, promoting a straight forward user experience. Squared edges give a structured and organized appearance to the elements on the screen. The use of straight lines and right angles reinforces a modern and geometric design approach.
+The design is centred around a cohesive blue palette, creating a calm appearance. Shades and gradients of blue are strategically used for different elements to maintain visual hierarchy and consistency with pops of teal for key flash messages to the user. The focus is on essential content and functionality, promoting a straight forward user experience. Squared edges give a structured and organised appearance to the elements on the screen. The use of straight lines and right angles reinforces a modern and geometric design approach.
 
 **Wireframes**
 
@@ -296,7 +296,7 @@ To follow best practice wireframes were developed for Mobile followed by tablet 
 
 **Colour Palette**
 
-Due to its calming properties. I knew I wanted to use blue as my primary colour for the site, I used [mycolor.space](https://mycolor.space/) to create the graient and decide on the colour teal to use for my standout content. I then used the materialize documentation to use class references for colours when appropriate. 
+Due to its calming properties. I knew I wanted to use blue as my primary colour for the site, I used [mycolor.space](https://mycolor.space/) to create the gradient and decide on the colour teal to use for my standout content. I then used the materialize documentation to use class references for colours when appropriate. 
 
 **Fonts**
 
@@ -381,7 +381,7 @@ You can clone the repository by following these steps:
 4. Open Git shell or Terminal
 5. Change the current working directory to the one where you want the cloned directory
 6. In your IDE Terminal, type the following command to clone my repository:
-	- `git clone https://github.com/janebmckenna/MilestoneProject3.git`
+  - `git clone https://github.com/janebmckenna/MilestoneProject3.git`
 7. Press Enter to create your local clone.
 
 #### Forking
@@ -415,10 +415,8 @@ You can fork this repository by using the following steps:
 
 **Advice**
 
-I would like to thank my mentor Dick for his help and support during this project espcially but not limited to:
+I would like to thank my mentor Dick for his help and support during this project especially but not limited to:
 - challenging me to amend my logic to solve bugs within functions. 
 - Utilising the flexibility of the non relational database. 
 
-I would also like to thank my peers from my cohort and my cohort facilator Marko for testing and breaking my code during my testing phase. I would particularly like to thank Marko for pointing out that logged out users could navigate to the edit blog function directly via the URL. 
-
-
+I would also like to thank my peers from my cohort and my cohort facilitator Marko for testing and breaking my code during my testing phase. I would particularly like to thank Marko for pointing out that logged out users could navigate to the edit blog function directly via the URL. 

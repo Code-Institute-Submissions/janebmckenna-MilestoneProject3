@@ -32,9 +32,9 @@
 |Surface Pro 7|
 |Responsive widths to assess breakpoint issues|
 
-**Obeservations**
+**Observations**
 
-On Safari on all devices there is a shaddow of the dropdown almost unnoticeable, which allows the user to click and choose the category. I don't feel this is negatively impacting UX and is caused by solving the issue with validating select items. Selections made are reflected in the main choice box. 
+On Safari on all devices there is a shadow of the dropdown almost unnoticeable, which allows the user to click and choose the category. I don't feel this is negatively impacting UX and is caused by solving the issue with validating select items. Selections made are reflected in the main choice box. 
 
 ![select](static/Images/testing/select.png)
 
@@ -63,7 +63,7 @@ On Safari on all devices there is a shaddow of the dropdown almost unnoticeable,
 |Search Function - Homepage|Type search word click Submit|Returns appropriate Blogs or No results found|Pass|
 |Reset Button - homepage|Click reset button|Clears the search bar and reloads all blogs|Pass|
 |Accordion - Homepage |click on blog|expands one blog at a time|Pass|
-|Home Page - Comments Button (Logged in)|Click on comments button|Opens corresponding blog comments page with form to comment visable|Pass|
+|Home Page - Comments Button (Logged in)|Click on comments button|Opens corresponding blog comments page with form to comment visible|Pass|
 |Home Page - Comments Button (Logged out)|Click on comments button|Opens corresponding blog comments page with 'Login to join the conversation text'|Pass|
 |Delete Button|Click Delete button|Asks user to confirm deletion|Pass|
 |Confirm Delete|Click Delete|Flash Blog successfully Deleted|Pass|
@@ -76,7 +76,7 @@ On Safari on all devices there is a shaddow of the dropdown almost unnoticeable,
 |Register Page|Type passwords that do not match|Red text under password confirm that indicates passwords dont match |Pass|
 |Register Page|Type passwords that match|Green text under password confirm that indicates passwords match |Pass|
 |Register Page|Click Register when passwords do not match|Flash passwords did not match|Pass|
-|Register Page|Click Register email that exisits in DB|Flash email already exists |Pass|
+|Register Page|Click Register email that exists in DB|Flash email already exists |Pass|
 |Register Page|Click Register username already in DB|Flash username already exists|Pass|
 |Register Page|Type passwords with special characters|Pop up: Please match the format requested |Pass|
 |Register Page|Click on Login link|Redirect to login page|Pass|
@@ -96,11 +96,11 @@ On Safari on all devices there is a shaddow of the dropdown almost unnoticeable,
 |Confirm Delete|Click Cancel|Returned to Previous Page|Pass|
 |Profile Page - Edit Button|Click Edit Button|redirects user to the edit blog screen which is filled with the current blog content|Pass|
 |Profile Page - Comments Button|Click on comments button|Opens corresponding blog comments page|Pass|
-|Profile Page|Click accordian on Blog|Blog content opens to read|Pass|
+|Profile Page|Click accordion on Blog|Blog content opens to read|Pass|
 |Comment Page| Click add comment with typing comment|Pop up:Please fill in this field|Pass|
 |Comment Page| Click add comment with comment less than 10 characters|Pop up:Please lengthen this text to 10 characters or more|Pass|
 |Comment Page| Click add comment with valid comment > 10 characters|Comment is added to the comments section and Thank you flash message appears|Pass|
-|Comment Page| Blog owner or admin users|Delete (comment) button is visable|Pass|
+|Comment Page| Blog owner or admin users|Delete (comment) button is visible|Pass|
 |Comment Page| Click Delete button|User asked to confirm deletion|Pass|
 |Confirm Delete|Click Delete|Flash Comment successfully Deleted + corresponding comment is deleted|Pass|
 |Confirm Delete|Click Cancel|Returned to Previous Page|Pass|
@@ -108,7 +108,7 @@ On Safari on all devices there is a shaddow of the dropdown almost unnoticeable,
 |New Post|Fail to choose Category click Add Blog|Pop up: Please select an item from the list|Pass|
 |New Post|click Add Blog - no Blog title|Pop up: Please fill in this field|Pass|
 |New Post|click Add Blog - no Blog content|Pop up: Please fill in this field|Pass|
-|New Post|Click Add Blog - all fields complete|Flash: Thank you Blog added succesfully|Pass|
+|New Post|Click Add Blog - all fields complete|Flash: Thank you Blog added successfully|Pass|
 |Manage Categories|Click Add Category|Redirected to Add Category|Pass|
 |Add Category|Click Add Category - blank field|Pop up: Please fill in this field|Pass|
 |Add Category|Click Add Category - completed field|Flash New Category Added and Category appears on the Category list|Pass|
@@ -144,7 +144,7 @@ On Safari on all devices there is a shaddow of the dropdown almost unnoticeable,
 ## Lighthouse Audit
 ![Lighthouse Audit](static/Images/testing/lighthouse-audit.png)
 
-When I initally ran the lighthouse audit on some of the pages I had some accessibility issues, I added some aria labels and a hidden label for the category drop down. I also had to add in a meta desrciption tage into the head fro SEO. 
+When I initially ran the lighthouse audit on some of the pages I had some accessibility issues, I added some aria labels and a hidden label for the category drop down. I also had to add in a meta description tag into the head for SEO. 
 
 On final Lighthouse audits green results were returned on all pages. 
 
@@ -155,7 +155,7 @@ On final Lighthouse audits green results were returned on all pages.
 ![validator](static/Images/testing/w3-html-validator.png)
 
 All Blogs(Home), Login, Register, New Blog, Comments pages pass through with no issues. 
-Currently unnable to check profile and manage categories due to session cookies requirement. I have checked both by direct input and the errors returned relate to jinga templating language. 
+Currently unable to check profile and manage categories due to session cookies requirement. I have checked both by direct input and the errors returned relate to jinga templating language. 
 
 [CSS validator Jigsaw](https://jigsaw.w3.org/css-validator/)
 
@@ -165,7 +165,7 @@ No errors found.
 
 [JSHint](jshint.com)
 
-Didnt return any errors but showed that $ was undefined, I was not concerned as it related to jQuery. 
+Didn’t return any errors but showed that $ was undefined, I was not concerned as it related to jQuery. 
 
 [jsfiddle](https://jsfiddle.net/)
 
@@ -175,7 +175,7 @@ As this could be configured to include jQuery I also passed my js through withou
 
 ![linter image](static/Images/testing/CI-python-linter.png)
 
-There were initally some whitespace issues when I passed my python code through the linter to check pep8 compliance. 
+There were initially some whitespace issues when I passed my python code through the linter to check pep8 compliance. 
 On lines 127 and 128 I had some indentation issues that I couldn't figure out without breaking my code. I found the solution within the [pep8 documentation on continuation lines](https://peps.python.org/pep-0008/) 
 
 ## Bugs
