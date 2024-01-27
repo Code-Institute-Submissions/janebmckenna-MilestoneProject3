@@ -160,8 +160,8 @@ footer{
         margin: 15px;
     }
     .btn-small{
-        font-size: 10px;
-        padding: 3px;
+        font-size: 12px;
+        padding: 2px;
     }
 }
 @media screen and (max-width: 375px){
@@ -170,5 +170,9 @@ footer{
     }
     .blog-title{
         font-size: small;
+    }
+    .btn-small{
+        font-size: 10px;
+        padding: 2px;
     }
 }

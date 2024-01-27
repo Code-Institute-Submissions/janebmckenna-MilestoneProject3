@@ -326,8 +326,7 @@ def internal_server_error(error):
     return render_template('500.html'), 500
 
 
-# Note to self change debug to false before submitting
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
