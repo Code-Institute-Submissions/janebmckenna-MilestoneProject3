@@ -19,8 +19,8 @@
                     </div>
                     <!-- edit/delete buttons -->
                     <div class="card-action">
-                        <a href="#delete-modal3{{ category._id }}" class="btn-small red accent-4 modal-trigger">Delete</a>
-                        <a href="{{ url_for('edit_category', category_id=category._id)}}" class="btn-small light-blue lighten-1 editbtn">Edit</a>
+                        <a href="#delete-modal3{{ category._id }}" class="btn-small red accent-4 modal-trigger category-btn">Delete</a>
+                        <a href="{{ url_for('edit_category', category_id=category._id)}}" class="btn-small light-blue lighten-1 editbtn category-btn">Edit</a>
                     </div>
                     <!-- Modal Confirm Delete -->
                     <div id="delete-modal3{{ category._id }}" class="modal">

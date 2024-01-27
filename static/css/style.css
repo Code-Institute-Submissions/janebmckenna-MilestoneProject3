@@ -85,7 +85,6 @@ footer{
     margin-top: 10px;
     width: 30%;
 }
-
 .commentbtn{
     text-align: right;
     margin-right: auto;
@@ -120,8 +119,13 @@ footer{
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  .blog-btn{
+.blog-btn{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important
+}
+.category-btn{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important
+    padding: 5px;
+    margin: 5px;
 }
 .hidden{ 
     border-width: 0; 
