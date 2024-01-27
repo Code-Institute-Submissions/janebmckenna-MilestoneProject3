@@ -2,7 +2,7 @@
 [View live project Here](https://life-in-blog-cd65fb4d61a0.herokuapp.com/)
 ***
 
-Life in Blog is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog for others may help to avoid a pitfall in the road. Life in Blog allows users to write about all of lifes experiences, ups and downs.  
+Life in Blog is a user centric app designed to enable users to follow and extract inspiration from others life experiences. Users can blog their life experiences, be it travel, food, books, film or day to day life. A tough life experience blog for others may help to avoid a pitfall in the road. A great TV series recomendation may fuel a weekend binge watch. Life in Blog allows users to write about all of lifes experiences, ups and downs, find inspiration for their next move.  
 
 ![Mock Up](static/Images/mockup.png)
 
@@ -47,7 +47,7 @@ _As a FIRST TIME user of the site I want to be able to:_
 - Logout of the site
 
 _As a RETURNING user of the site I want to be able to:_
-- Login and out of the site.
+- Log in and out of the site.
 - Easily filter to my favourite blogger
 - Write my own blogs
 - Edit/Update my blogs
@@ -211,6 +211,50 @@ I decided to use a traditional footer with a link to my github repository.
 
 ![Data Structure](static/Images/Wireframes/Database.png)
 
+My project uses a non-relational database with MongoDB, and therefore the database architecture doesn't have actual relationships like a relational database would.
+
+My database is called blogsite.
+
+It contains 3 collections:
+
+- **Blogs**
+
+This collection holds a record of all current blogs that have been added by Users. 
+
+| Key | Type | Notes |
+| --- | --- | --- |
+| _id | ObjectId() | |
+| category_name| String | |
+| title| String | |
+| blog_content | String | |
+| date | String | |
+| user | String | |
+| updated| String | |
+| comments| Array| Comments are stored as strings in an array and contain the name of the user who commented as part of the string|
+
+
+- **Categories**
+
+Managed by the admin users (who are set to 'yes' on is_admin within their user object)
+
+| Key | Type |
+| --- | --- |
+| _id | ObjectId() |
+| category_name| String | 
+
+- **Users**
+
+This collection stores the users username and their hashed password, it also stores their email for future developments and assigns admin privilages. 
+
+| Key | Type |
+| --- | --- |
+| _id | ObjectId() |
+| email| String |
+| username | String |
+| password | String |
+| is_admin | String |
+
+
 Once I had MVP complete I decided to add the additional functionality of commenting on blogs. I availed of the flexibility of a non relational DB. storing the comments as an array within the blog object. 
 
 **Security**
@@ -238,13 +282,15 @@ The design is centered around a cohesive blue palette, creating a calm appearanc
 
 **Wireframes**
 
+To follow best practice wireframes were developed for Mobile followed by tablet and desktop. I used [Balsamiq](https://balsamiq.com/) to design my wireframes. 
+
 [View Wireframes](wireframes.md)
 
 ## UX-surface
 
 **Colour Palette**
 
-I knew I wanted to use blue as my primary colour for the site, I used [mycolor.space](https://mycolor.space/) to create the graient and decide on the colour teal to use for my standout content. I then used the materialize documentation to use class references for colours when appropriate. 
+Due to its calming properties. I knew I wanted to use blue as my primary colour for the site, I used [mycolor.space](https://mycolor.space/) to create the graient and decide on the colour teal to use for my standout content. I then used the materialize documentation to use class references for colours when appropriate. 
 
 **Fonts**
 
@@ -257,9 +303,11 @@ I will rely upon a combination of materialize and media queries to ensure the ap
 
 
 # Technologies-used
-- **Libraries:** jQuery, Materialize, Flask
+- **Libraries:** jQuery, Materialize 
+- **Python Framework:** Flask
 - **Languages:** HTML, CSS, JavaScript, Python
 - **Database Management:** MongoDB
+- **Version Control:** Git
 - **Gitpod:** used as a cloud code editor.
 - **GitHub:** used as a cloud based code repository.
 - **Heroku:** was used to deploy the app. 
@@ -270,12 +318,74 @@ I will rely upon a combination of materialize and media queries to ensure the ap
 # Deployment
 The Website has been deployed using Heroku [Here](https://life-in-blog-cd65fb4d61a0.herokuapp.com/) using the method below:
 
+### MongoDB Non-Relational Database
+
+This project uses [MongoDB](https://www.mongodb.com) for the Non-Relational Database.
+
+To setup my MongoDB Database URI, signed into their site, then followed these steps:
+- I Navigated to the Cluster I wished to set up my database in and clicked on collections.
+- I clicked create database and set up my database called blogsite.
+- I then set up the three collections I needed for the project, Users, Blogs and Categories. 
+- I clicked on the Connect button.
+- I clicked Connect Your Application.
+- I copied the connection string, and replaced `password` with my own password.
+
+### Heroku Deployment
+
 - I logged into my Heroku Account. 
 - I clicked on New and choose 'Create New App'
 - I choose a unique name for my app and set the region to Europe. 
 - I then chose Github as the deployment method and searched for my repo name. 
 - I then clicked on settings and  updated the config variables. 
 - I navigated back to the deploy and enabled automatic deployment. 
+
+Heroku needs two additional files in order to deploy properly.
+- requirements.txt
+- Procfile
+
+You can install this project's **requirements** (where applicable) using:
+- `pip3 install -r requirements.txt`
+
+You can update your requirements.txt file using:
+- `pip3 freeze --local > requirements.txt`
+
+The **Procfile** can be created with the following command:
+- `echo web: python app.py > Procfile`
+
+This project can be cloned or forked in order to make a local copy on your own system.
+
+For either method, you will need to install any applicable packages found within the *requirements.txt* file.
+- `pip3 install -r requirements.txt`.
+
+You will need to create a new file called `env.py` at the root-level which contains your own environment variables. 
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("MONGO_DBNAME", "user's own value")
+os.environ.setdefault("MONGO_URI", "user's own value")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "user's own value")
+
+#### Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the [GitHub repository](https://github.com/janebmckenna/MilestoneProject3/tree/main) 
+2. Locate the Code button above the list of files and click it 
+3. Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard
+4. Open Git shell or Terminal
+5. Change the current working directory to the one where you want the cloned directory
+6. In your IDE Terminal, type the following command to clone my repository:
+	- `git clone https://github.com/janebmckenna/MilestoneProject3.git`
+7. Press Enter to create your local clone.
+
+#### Forking
+
+By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository.
+You can fork this repository by using the following steps:
+
+1. Login to GitHub and locate the [GitHub Repository](https://github.com/janebmckenna/MilestoneProject3/tree/main)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 
 # Credits
