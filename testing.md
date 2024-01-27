@@ -16,21 +16,27 @@
 
 |**Testing** |**iPhone12 safari** |**iPad Pro 9.7" safari**|**MacBook Air Chrome**|**MacBook Air Safari**|**Lenovo MS OS Edge**|**Lenovo MS OS Edge**|**Chrome Developer Tools**|
 |-----|-----|-----|-----|-----|-----|-----|-----|
-|Responsive|
-|Delete/Edit buttons visible to owner user|
-|Forms won't submit without appropriate information| Yes | Yes|Yes|Yes|Yes|Yes|Yes|
+|Responsive|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Delete/Edit buttons visible to owner user|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Forms won't submit without appropriate information|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |User Flash messages appear|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Choose category from drop down list on blog form|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
 |**Additional Devices Tested Using Chrome Developer Tools**|**Responsive Observations**
 |-----|-----|
-|Galaxy S9+|
+|Galaxy S9+| below 375 profile page and new blog appear slightly squashed observed on S9+|
 |Galaxy S20 Ultra|
-|Pixel 5|
+|Pixel 7|
 |iPad Air|
 |iPad Mini|
 |Surface Pro 7|
 |Responsive widths to assess breakpoint issues|
+
+**Obeservations**
+
+On Safari on all devices there is a shaddow of the dropdown almost unnoticeable, which allows the user to click and choose the category. I don't feel this is negatively impacting UX and is caused by solving the issue with validating select items. Selections made are reflected in the main choice box. 
+
+![select](static/Images/testing/select.png)
 
 **Manual Testing of User Actions**
 
