@@ -169,7 +169,7 @@ I can delete my own blogs.
 Additionally as an admin I can also:
 CRUD - categories, all blogs and all comments. 
 
-_404/500 Error Pages:_
+_**404/500 Error Pages:**_
 
 - A 404 error page will display if a user tries to navigate to a page that doesn't exist. 
 - A 500 error page will display if there is an internal server error.
@@ -186,11 +186,11 @@ Allow users to reset their passwords and be reminded of their username via email
 I took steps to include this within this project as a learning opportunity for myself but ultimately decided it wasn't necessary for MVP. I encountered a security issue with logging into my gmail which I solved by creating an app specific password. From speaking with my mentor I decided to focus polishing the remainder of the project instead of continuing to solve the password reset which I understand I will learn as part of the next section of the course. 
 
 - **Soft Delete Blogs**
-To allow me to see number of blogs created and deleted, I could implement a soft delete using a active flag within the DB. 
+To allow me to see number of blogs created and deleted, I could implement a soft delete using an active flag within the DB. 
 
 ## UX-structure
 
-- All functions are displayed to the relevant users dependant on login/admin status. 
+- All relevent functions are displayed to the relevant users dependant on login/admin status. 
 - Submit buttons are provided at all points of creation, ie registration, new blog, new comment, new category, editing a blog. 
 - Cancel and reset buttons are provided where appropriate to avoid the need to use browser controls. 
 - Pop out accordion is used to read blog content. 
@@ -335,6 +335,7 @@ To setup my MongoDB Database URI, signed into their site, then followed these st
 - I clicked on the Connect button.
 - I clicked Connect Your Application.
 - I copied the connection string, and replaced `password` with my own password.
+- This was then stored in my env.py file and used in config variables when deploying my heroku app. 
 
 ### Heroku Deployment
 
@@ -342,7 +343,7 @@ To setup my MongoDB Database URI, signed into their site, then followed these st
 - I clicked on New and choose 'Create New App'
 - I choose a unique name for my app and set the region to Europe. 
 - I then chose Github as the deployment method and searched for my repo name. 
-- I then clicked on settings and  updated the config variables. 
+- I then clicked on settings and updated the config variables. 
 - I navigated back to the deploy and enabled automatic deployment. 
 
 Heroku needs two additional files in order to deploy properly.
@@ -365,11 +366,13 @@ For either method, you will need to install any applicable packages found within
 
 You will need to create a new file called `env.py` at the root-level which contains your own environment variables. 
 
+```
 os.environ.setdefault("IP", "0.0.0.0")
 os.environ.setdefault("MONGO_DBNAME", "user's own value")
 os.environ.setdefault("MONGO_URI", "user's own value")
 os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "user's own value")
+os.environ.setdefault("SECRET_KEY", "user's own value")`
+```
 
 #### Cloning
 
@@ -381,7 +384,8 @@ You can clone the repository by following these steps:
 4. Open Git shell or Terminal
 5. Change the current working directory to the one where you want the cloned directory
 6. In your IDE Terminal, type the following command to clone my repository:
-  - `git clone https://github.com/janebmckenna/MilestoneProject3.git`
+  
+   `git clone https://github.com/janebmckenna/MilestoneProject3.git`
 7. Press Enter to create your local clone.
 
 #### Forking
@@ -403,6 +407,8 @@ You can fork this repository by using the following steps:
 - My fonts were taken from [Google Fonts](https://fonts.google.com/)
 - Wireframes were created using [Balsamiq](https://balsamiq.com/)
 - Database schematic was created using [Lucid Chart](https://www.lucidchart.com) 
+- I created my favicon from my logo. I read [this article](https://www.ionos.co.uk/digitalguide/websites/web-design/favicon-size-and-dimensions/) to understand the size required. 
+- I created my logo using [Bing AI](https://www.bing.com/images/create?FORM=GENILP)
 
 **Code**
 - I learned how to format the date within my Python function from [this site ](https://stackoverflow.com/questions/62762873/current-date-time-in-a-particular-format-python) 
