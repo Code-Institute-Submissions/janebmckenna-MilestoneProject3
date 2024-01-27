@@ -246,13 +246,13 @@ Managed by the admin users (who are set to 'yes' on is_admin within their user o
 
 This collection stores the users username and their hashed password, it also stores their email for future developments and assigns admin privilages. 
 
-| Key | Type |
-| --- | --- |
-| _id | ObjectId() |
-| email| String |
-| username | String |
-| password | String |
-| is_admin | String |
+| Key | Type |Notes|
+| --- | --- |---|
+| _id | ObjectId()| |
+| email| String ||
+| username | String ||
+| password | String |Hashed Password for security|
+| is_admin | String ||
 
 
 Once I had MVP complete I decided to add the additional functionality of commenting on blogs. I availed of the flexibility of a non relational DB. storing the comments as an array within the blog object. 
