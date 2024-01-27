@@ -62,7 +62,7 @@ footer{
 .editbtn{
     margin-left: 5px;
     margin-right: 5px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .form-bg{
     background-color: rgba(0,0,0,0.4);
@@ -120,12 +120,14 @@ footer{
     text-transform: uppercase;
   }
 .blog-btn{
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important;
+    margin: 2px;
 }
 .category-btn{
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black !important;
-    padding: 5px;
     margin: 5px;
+    text-align: center;
+    vertical-align: middle;
 }
 .hidden{ 
     border-width: 0; 
@@ -161,5 +163,13 @@ footer{
     .btn-small{
         font-size: 10px;
         padding: 3px;
+    }
+}
+@media screen and (max-width: 375px){
+    .blog-content label{
+        font-size: x-small;
+    }
+    .blog-title{
+        font-size: small;
     }
 }

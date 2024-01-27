@@ -24,7 +24,7 @@
 
 |**Additional Devices Tested Using Chrome Developer Tools**|**Responsive Observations**
 |-----|-----|
-|Galaxy S9+| below 375 profile page and new blog appear slightly squashed observed on S9+|
+|Galaxy S9+| below 375 profile blogs and new blog appear slightly squashed observed on S9+. - media query added|
 |Galaxy S20 Ultra|
 |Pixel 7|
 |iPad Air|
@@ -119,10 +119,6 @@ On Safari on all devices there is a shaddow of the dropdown almost unnoticeable,
 |Manage Categories|Click Edit|Edit category opens with Current category name pre populated|Pass|
 |Manage Categories|Click Cancel|Returned to the Manage Categories Page|Pass|
 |Manage Categories|Click Update Category|Flash Category Updated and updated on category list|Pass|
-
-
-
-
 
 ## User Story Validation
 
