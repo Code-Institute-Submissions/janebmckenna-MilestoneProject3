@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h3 class="white-text text-shadow center-align">Manage Categories</h3>
+    <!-- new category button -->
     <div class="row">
         <div class="col s12 center-align">
             <a href="{{ url_for('new_category')}}" class="btn-large light-blue blog-btn">
@@ -10,11 +11,13 @@
     </div>
     <div class="row">
         {% for category in categories %}
+            <!-- Categories -->
             <div class="col s12 m3">
                 <div class="card blue lighten-4 indigo-text text-darken-4 center-align">
                     <div class="card-content">
                         <span class="card-title">{{category.category_name}}</span>
                     </div>
+                    <!-- edit/delete buttons -->
                     <div class="card-action">
                         <a href="#delete-modal3{{ category._id }}" class="btn-small red accent-4 modal-trigger">Delete</a>
                         <a href="{{ url_for('edit_category', category_id=category._id)}}" class="btn-small light-blue lighten-1 editbtn">Edit</a>
@@ -34,5 +37,4 @@
             </div>
         {% endfor %}
     </div>
-
 {% endblock %}

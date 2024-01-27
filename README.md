@@ -169,6 +169,12 @@ I can delete my own blogs.
 Additionally as an admin I can also:
 CRUD - categories, all blogs and all comments. 
 
+_404/500 Error Pages:_
+
+- A 404 error page will display if a user tries to naviagte to a page that doesn't exist. 
+- A 500 error page will display if there is an internal server error.
+- Both error pages contain the familar navigation but will also redirect back to the homepage after 10 seconds. 
+
 **Future Improvements**
 - **Contact page**
 Allow users to contact site admin to suggest improvements or with issues. 

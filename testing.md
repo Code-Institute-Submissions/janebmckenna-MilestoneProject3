@@ -4,11 +4,11 @@
 
 ## Contents
 
-[Manual Testing](#manual-testing) \
-[User Story Validation](#user-story-validation) \
-[Lighthouse Audit](#lighthouse-audit) \
-[Validator Testing](#validator-testing)\
-[Bugs](#bugs)
+- [Manual Testing](#manual-testing) 
+- [User Story Validation](#user-story-validation) 
+- [Lighthouse Audit](#lighthouse-audit) 
+- [Validator Testing](#validator-testing)
+- [Bugs](#bugs)
 
 ## Manual Testing
 

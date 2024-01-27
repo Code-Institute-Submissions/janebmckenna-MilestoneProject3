@@ -30,6 +30,7 @@ def blog_posts():
     return render_template("blogs.html", blogs=blogs)
 
 
+# Search function on main homepage
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get('query')
@@ -37,6 +38,7 @@ def search():
     return render_template("blogs.html", blogs=blogs)
 
 
+# Search function on Profile page only returns the users own blogs
 @app.route("/search_profile/<username>", methods=["GET", "POST"])
 def search_profile(username):
     query = request.form.get('query')
@@ -168,9 +170,10 @@ def new_blog():
 
     categories = mongo.db.categories.find().sort(
         "category_name", 1)
+    # Defensive redirect
     if 'user' in session:
         return render_template(
-        "new_blog.html", categories=categories)
+          "new_blog.html", categories=categories)
     else:
         flash("""
             Sorry, you don't appear to be
@@ -211,6 +214,7 @@ def edit(blog_id):
         return redirect(url_for("login"))
 
 
+# comments page
 @app.route("/comments/<blog_id>", methods=["GET", "POST"])
 def comments(blog_id):
     if request.method == "POST":
@@ -246,6 +250,7 @@ def delete_comment(comment, blog_id):
         "comments.html", blog=blog, comments=comments)
 
 
+# Only visable to admin. Category management page
 @app.route("/categories")
 def categories():
     admin = session["admin"]
@@ -310,6 +315,7 @@ def delete_category(category_id):
     return redirect(url_for("categories"))
 
 
+# Error handlers
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404

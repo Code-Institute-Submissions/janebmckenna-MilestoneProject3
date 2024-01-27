@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- 500 error message -->
 <div class="container">
   <div class="row">
     <div class="col s12 m12 l6 offset-l3">
@@ -15,6 +15,7 @@
 {% endblock %}
 {% block scripts %}
 <script>
+  // Ten second timeout to return to home page
   setTimeout(function() {
       window.location.href = "/";}, 10000); 
 </script>
